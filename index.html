@@ -1,1 +1,1197 @@
-hello world
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>NeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="NeroBlog">
+<meta property="og:url" content="http://wangyunjiegit.github.io/index.html">
+<meta property="og:site_name" content="NeroBlog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NeroBlog">
+  
+    <link rel="alternate" href="/atom.xml" title="NeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">If you can&#39;t explain it simply, you don&#39;t understand it well enough.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangyunjiegit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-golang/go开发环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/27/golang/go开发环境搭建/" class="article-date">
+  <time datetime="2019-01-27T03:52:42.000Z" itemprop="datePublished">2019-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/27/golang/go开发环境搭建/">go开发环境搭建(vscode)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>1.下载golang</p>
+<p><a href="https://golang.org/dl/" target="_blank" rel="noopener">golang官方下载页面</a>下载压缩go1.13.6.windows-amd64.zip文件并解压到指定目录(如C:\go1.13.6.windows-amd64\go)</p>
+<p>新建系统环境变量名<code>GOROOT</code> 内容为go文件解压路径(如C:\go1.13.6.windows-amd64\go)</p>
+<p>修改系统环境变量<code>PATH</code>，在<code>PATH</code>内容后新增<code>%GOROOT%\bin;</code><br>注意带分号</p>
+<p>打开cmd输入测试命令<code>go version</code>，如能打印出go版本号则成功</p>
+<p>新建系统环境变量名<code>GOPATH</code> 内容为将来的go开发工作目录(如C:\go_workspace)，并在该目录下新建3个文件夹，分别是<code>src、pkg、bin</code>，其中将来所有项目的源码都放在src目录下，bin目录存放的是可执行文件，pkg目录存库文件</p>
+<p>将GOPATH下的<code>bin</code>目录添加到<code>PATH</code>环境变量下，在<code>PATH</code>末尾新增<code>%GOPATH%\bin;</code>，注意带分号</p>
+<p>配置完成后，可以通过<code>go env</code>查看配置好的相关环境变量</p>
+<p>2.安装vscode</p>
+<p><a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">下载地址</a>，下载对应平台的安装文件</p>
+<p>3.配置vscode</p>
+<p>vscode安装go插件后，还需要安装golang自动补全等辅助插件，如果没有科学上网途径的话，大概率会自动安装失败，直接下载已经编译好的可执行文件，拷贝到自己电脑上的 GOROOT/bin 目录下。 <a href="https://pan.baidu.com/s/1Lhy3IRxoqBOCDpBshVRjsg" target="_blank" rel="noopener">go-tools百度云下载链接</a>，密码:4crs。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2019/01/27/golang/go开发环境搭建/" data-id="ck5w3ells000jsw7k8cmkzffg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Dapper" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/Dapper/" class="article-date">
+  <time datetime="2017-03-28T07:10:31.000Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/Dapper/">轻量级ORM框架Dapper</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h1><p>Dapper作为一款高性能、轻量级的ORM框架，目前支撑了国外知名网站stackoverflow的数据访问层，其知名度非常高。在众多ORM中，堪称性能之王。作为一款微型 ORM，很受国内开发者的欢迎，毕竟经过大网站 stackoverflow 的考验。很多自主开发的 ORM 做性能测试，都会选择 Dapper 作为比较对象。</p>
+<h1 id="Dapper的优势"><a href="#Dapper的优势" class="headerlink" title="Dapper的优势"></a>Dapper的优势</h1><ul>
+<li>轻量。只有一个文件(SqlMapper.cs)</li>
+<li>速度快。Dapper的速度接近与IDataReader，取列表的数据超过了DataTable。</li>
+<li>支持多种数据库。支持多数据库的本质是因为Dapper是对IDBConnection接口进行了方法扩展，而如SqlConnection,MysqlConnection,OracleConnection等都是继承于DBConnection，而DBConnection又是实现了IDBConnection的接口。所以Dapper能够在所有Ado.net Providers下工作，包括sqlite, sqlce, firebird, oracle, MySQL, PostgreSQL and SQL Server。</li>
+<li>可以映射一对一，一对多，多对多等多种关系。</li>
+<li>性能高。通过Emit反射IDataReader的序列队列，来快速的得到和产生对象，性能不错。</li>
+<li>兼容性好。支持.NetFrameWork2.0之后所有版本</li>
+</ul>
+<h1 id="Dapper原理"><a href="#Dapper原理" class="headerlink" title="Dapper原理"></a>Dapper原理</h1><p>Dapper是一个简单的ORM，专门从SQL查询结果中快速生成对象。Dapper支持执行sql查询并将其结果映射到强类型列表或动态对象列表。Dapper缓存每个查询的信息。这种全面的缓存有助于从大约两倍于LINQ到SQL的查询生成对象。当前缓存由两个ConcurrentDictionary对象处理，它们从不被清除。</p>
+<p>Dapper通过扩展方法将两个映射函数添加到IDbConnection接口，这两个函数都命名为ExecuteMapperQuery。第一个映射结果是一个强类型列表，而第二个映射结果是一个动态对象列表。ExecuteMapperCommand执行并且不返回结果集。所有三个方法都将参数接受为匿名类，其中属性值映射到同名的SQL参数。</p>
+<p>Dapper旨在仅处理结果集到对象映射。它不处理对象之间的关系，它不会自动生成任何类型的SQL查询。</p>
+<ul>
+<li>Query()方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Query&lt;T&gt;(this IDbConnection cnn, string sql, object param = null, </span><br><span class="line">         IDbTransaction transaction = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null)</span><br></pre></td></tr></table></figure>
+<p>Query()方法表示执行查询，返回按T输入的数据。该方法是Query()方法的泛型方法，有7个参数，第一个参数为IDbConnection扩展类，表示对IDbConnection接口进行扩展，该方法使用了可选参数，提高方法的扩展性。在Query方法的实现中，有一个CommandDefinition类，用来表示sql操作的关键方面。在该类下有一个GetInit()方法。</p>
+<ul>
+<li>GetInit()方法<br>Dapper通过Emit反射IDataReader的序列队列，来快速的得到和产生对象。GetInit()方法是一个静态方法，该方法的“Type commandType”参数表示连接关联的Command对象，返回一个Action<idbcommand>委托。</idbcommand></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (SqlMapper.Link&lt;Type, Action&lt;IDbCommand&gt;&gt;.TryGet(commandInitCache, commandType, out action))&#123; return action; &#125;</span><br></pre></td></tr></table></figure>
+<p> Link&lt;TKey, TValue&gt;是一个泛型分部类，这是一个微缓存，查看是否存在一个Action<idbcommand>的委托。</idbcommand></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> var bindByName = GetBasicPropertySetter(commandType, &quot;BindByName&quot;, typeof(bool));</span><br><span class="line">var initialLongFetchSize = GetBasicPropertySetter(commandType, &quot;InitialLONGFetchSize&quot;, typeof(int));</span><br></pre></td></tr></table></figure>
+<p> 以上两个操作主要获取BindByName和InitialLONGFetchSize的获取基本属性设置。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">if (bindByName != null || initialLongFetchSize != null)</span><br><span class="line">           &#123;</span><br><span class="line">               var method = new DynamicMethod(commandType.Name + &quot;_init&quot;, null, new Type[] &#123; typeof(IDbCommand) &#125;);</span><br><span class="line">               var il = method.GetILGenerator();</span><br><span class="line">               if (bindByName != null)</span><br><span class="line">               &#123;</span><br><span class="line">                   il.Emit(OpCodes.Ldarg_0);</span><br><span class="line">                   il.Emit(OpCodes.Castclass, commandType);</span><br><span class="line">                   il.Emit(OpCodes.Ldc_I4_1);</span><br><span class="line">                   il.EmitCall(OpCodes.Callvirt, bindByName, null);</span><br><span class="line">               &#125;</span><br><span class="line">               if (initialLongFetchSize != null)</span><br><span class="line">               &#123;</span><br><span class="line">                   il.Emit(OpCodes.Ldarg_0);</span><br><span class="line">                   il.Emit(OpCodes.Castclass, commandType);</span><br><span class="line">                   il.Emit(OpCodes.Ldc_I4_M1);</span><br><span class="line">                   il.EmitCall(OpCodes.Callvirt, initialLongFetchSize, null);</span><br><span class="line">               &#125;</span><br><span class="line">               il.Emit(OpCodes.Ret);</span><br><span class="line">               action = (Action&lt;IDbCommand&gt;)method.CreateDelegate(typeof(Action&lt;IDbCommand&gt;));</span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure>
+<p> 这一步是该操作的核心部分，利用Emit反射操作。根据上一步获取的对应名称的基本属性设置，采用DynamicMethod对象，定义和表示一个可以编译，执行和丢弃的动态方法。丢弃的方法可用于垃圾回收。调用该对象的GetILGenerator方法，返回方法的Microsoft中间语言（MSIL）生成器，默认的MSIL流大小为64字节。判断基本属性设置不为空后，调用ILGenerator类的Emit方法，Emit()将指定的指令放在指令流上，该方法接收一个IL流。EmitCall()将 call 或 callvirt 指令置于 Microsoft 中间语言 (MSIL) 流，以调用varargs 方法。我们看到OpCodes类，该类描述中间语言 (IL) 指令。CreateDelegate()完成动态方法并创建一个可用于执行它的委托。</p>
+<p> 通过以上的反射操作构建好对象后，就会接着执行对应的数据库操作。</p>
+<ul>
+<li><p>QueryImpl()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">private static IEnumerable&lt;T&gt; QueryImpl&lt;T&gt;(this IDbConnection cnn, CommandDefinition command, Type effectiveType)</span><br><span class="line">      &#123;</span><br><span class="line">          object param = command.Parameters;</span><br><span class="line">          var identity = new Identity(command.CommandText, command.CommandType, cnn, effectiveType, param == null ? null : param.GetType(), null);</span><br><span class="line">          var info = GetCacheInfo(identity, param, command.AddToCache);</span><br><span class="line">          IDbCommand cmd = null;</span><br><span class="line">          IDataReader reader = null;</span><br><span class="line">          bool wasClosed = cnn.State == ConnectionState.Closed;</span><br><span class="line">          try</span><br><span class="line">          &#123;</span><br><span class="line">              cmd = command.SetupCommand(cnn, info.ParamReader);</span><br><span class="line">              if (wasClosed) cnn.Open();</span><br><span class="line">              reader = cmd.ExecuteReader(wasClosed ? CommandBehavior.CloseConnection | CommandBehavior.SequentialAccess : CommandBehavior.SequentialAccess);</span><br><span class="line">              wasClosed = false; </span><br><span class="line">              var tuple = info.Deserializer;</span><br><span class="line">              int hash = GetColumnHash(reader);</span><br><span class="line">              if (tuple.Func == null || tuple.Hash != hash)</span><br><span class="line">              &#123;</span><br><span class="line">                  if (reader.FieldCount == 0) </span><br><span class="line">                      yield break;</span><br><span class="line">                  tuple = info.Deserializer = new DeserializerState(hash, GetDeserializer(effectiveType, reader, 0, -1, false));</span><br><span class="line">                  if (command.AddToCache) SetQueryCache(identity, info);</span><br><span class="line">              &#125;</span><br><span class="line">              var func = tuple.Func;</span><br><span class="line">              var convertToType = Nullable.GetUnderlyingType(effectiveType) ?? effectiveType;</span><br><span class="line">              while (reader.Read())</span><br><span class="line">              &#123;</span><br><span class="line">                  object val = func(reader);</span><br><span class="line">                  if (val == null || val is T)</span><br><span class="line">                  &#123;</span><br><span class="line">                      yield return (T)val;</span><br><span class="line">                  &#125;</span><br><span class="line">                  else</span><br><span class="line">                  &#123;</span><br><span class="line">                      yield return (T)Convert.ChangeType(val, convertToType, CultureInfo.InvariantCulture);</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;</span><br><span class="line">              while (reader.NextResult()) &#123; &#125;</span><br><span class="line">              reader.Dispose();</span><br><span class="line">              reader = null;</span><br><span class="line">              command.OnCompleted();</span><br><span class="line">          &#125;</span><br><span class="line">          finally</span><br><span class="line">          &#123;</span><br><span class="line">              if (reader != null)</span><br><span class="line">              &#123;</span><br><span class="line">                  if (!reader.IsClosed) try &#123; cmd.Cancel(); &#125;</span><br><span class="line">                      catch &#123; /* don&apos;t spoil the existing exception */ &#125;</span><br><span class="line">                  reader.Dispose();</span><br><span class="line">              &#125;</span><br><span class="line">              if (wasClosed) cnn.Close();</span><br><span class="line">              if (cmd != null) cmd.Dispose();</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p>该方法为执行查询操作的核心方法，通过CommandDefinition类的相关操作后，获取到相应的对象后，执行这一步操作。该方法是IDbConnection的扩展方法，CommandDefinition表示sql的相关操作对象，Type表示传入的一个有效的类型。Identity对象表示Dapper中的缓存查询的标识，该类是一个分部类，可以对其进行相应的扩展。GetCacheInfo()获取缓存信息。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2017/03/28/Dapper/" data-id="ck5w3eljn0001sw7kv352n3sj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ABP、SaaS与多租户" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/20/ABP、SaaS与多租户/" class="article-date">
+  <time datetime="2017-03-20T01:59:09.000Z" itemprop="datePublished">2017-03-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/20/ABP、SaaS与多租户/">ABP、SaaS与多租户</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ABP"><a href="#ABP" class="headerlink" title="ABP"></a>ABP</h1><p>ASP.NET Boilerplate是一个用最佳实践和流行技术开发现代WEB应用程序的新起点，它旨在成为一个通用的WEB应用程序框架和项目模板。ASP.NET Boilerplate 基于DDD的经典分层架构思想，实现了众多DDD的概念（但没有实现所有DDD的概念）。ABP不仅架构设计和代码写的好，文档也很全面详实（这是一个开发框架被技术选型的基础）。</p>
+<h1 id="多租户"><a href="#多租户" class="headerlink" title="多租户"></a>多租户</h1><p>多租户用于创建Saas（Software as-a service）应用（云处理）。</p>
+<blockquote>
+<p>维基百科对多租户的解释是：软件<strong>多租户</strong>是指一种软件架构，在这种软件架构中，软件的<strong>一个实例</strong>运行在服务器上并且为多个租户服务。</p>
+</blockquote>
+<p>一个租户是一组共享该软件实例特定权限的用户。有了多租户架构，软件应用被设计成为每个租户提供一个<strong>专用的实例包括该实例的数据的共享</strong>，还可以共享配置，用户管理，租户自己的功能和非功能属性。多租户和多实例架构相比，多租户分离了代表不同的租户操作的多个实例。</p>
+<p>多租户一般涉及如下几种场景：</p>
+<ul>
+<li>多部署-多数据库：即针对每个租户独立部署一套应用程序实例，每个实例对应一个数据库。这种不算是真正的多租户，不过对于在设计时没有考虑多租户的遗留系统采用这种部署方式不失为一种折中办法。</li>
+<li>单部署-多数据库：只有唯一的一个应用程序实例，每个租户分别连接不同的数据库。</li>
+<li>单部署-单数据库：应用程序实例和数据库都是一个。通过在需要隔离数据的数据表中加入一个类似TanantId或EnterpriseId来区分。如果我们有很多具有大量数据的租户，那么这种方法可能会有性能问题。我们可以使用关系型数据库的表分割特征或者将租户按组分到不同的服务器上。</li>
+<li>单部署-混搭数据库：应用程序实例一个，但是数据库根据情况，可以是单个或者多个。比如免费用户放到一个数据库中，高级用户分别有自己的数据库。</li>
+<li>集群部署-单/多/混搭数据库：应用程序的逻辑实例还是一个（只是为了高可用和性能部署为一个集群），然后对应的数据库可以是单个、多个和混搭。</li>
+</ul>
+<p>另外，除了针对租户的数据库以外，可能还需要一个全局的数据库（称之为主机数据库）来保存全局范围的配置数据。在单数据库情况下，主机数据可能就和租户数据放在一起（甚至同一个数据表中）。</p>
+<h1 id="ABP中的多租户"><a href="#ABP中的多租户" class="headerlink" title="ABP中的多租户"></a>ABP中的多租户</h1><p>ABP提供了创建单部署，单数据库，多租户架构的基础设施。</p>
+<p>从零搭建单部署-单数据库的多租户架构比较麻烦，因为我们必须要阻止一个租户读取或写入其他租户的数据。我们可以为每个数据库的读取（select）操作添加一个TenantId过滤器。而且，我们可以在每次写入的时候检查一下该实体是否和当前的租户相关。这是乏味而易于出错的，但ABP通过使用自动的数据过滤帮助我们处理这个事情。</p>
+<h2 id="租主与租户"><a href="#租主与租户" class="headerlink" title="租主与租户"></a>租主与租户</h2><ul>
+<li>租主（Host）:租主是单例的（只有一个租主）。租主会对创建和管理租户负责。因此，一个“租主用户”比所有的租户等级更高，并独立于所有租户，同时还能控制他们。</li>
+<li>租户（Tenant）:租主的一个客户，具有自己的用户角色，权限，设置等。每个租户都可以完全独立于其他租户使用应用。一个多租户应用会有一个或多个租户。如果是一个CRM应用，那么不同的租户也有它们自己的账户，契约，产品和订单。因此，当我们说“**租户用户”的时候，意思就是一个租户拥有的用户。</li>
+</ul>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>ABP定义了一个获取当前用户和租户id的IAbpSession接口。该接口用于多租户获取当前的租户id。因此，它可以基于当前的租户id过滤数据。ABP中有以下规则：</p>
+<ul>
+<li>如果UserId和TenantId都是null，那么当前的用户没有登录到系统。因此，我们可以不知道当前用户是否是一个租主用户还是一个租户用户。在这种情况下，用户不能访问授权的内容。</li>
+<li>如果UserId不是null，TenantId是null，那么当前用户是一个租主用户。</li>
+<li>如果UserId不是null，TenantId也不是null，那么当前用户是租户用户。</li>
+</ul>
+<h2 id="数据过滤器"><a href="#数据过滤器" class="headerlink" title="数据过滤器"></a>数据过滤器</h2><p>当从数据库中检索实体时，我们必须添加一个TenantId过滤器来只获得当前的租户实体。当你为实体实现了IMustHaveTenant和IMayHaveTenant两个接口之一时，ABP会自动地完成数据过滤。</p>
+<h2 id="IMustHaveTenant接口"><a href="#IMustHaveTenant接口" class="headerlink" title="IMustHaveTenant接口"></a>IMustHaveTenant接口</h2><p>该接口通过定义TenantId属性来区分不同租户的实体。一个实现了IMustHaveTenant的实体例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Product : Entity, IMustHaveTenant</span><br><span class="line">&#123;</span><br><span class="line">    public int TenantId &#123; get; set; &#125;</span><br><span class="line">        </span><br><span class="line">    public string Name &#123; get; set; &#125;</span><br><span class="line">    </span><br><span class="line">    //...其他属性</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样，ABP知道这是一个特定租户的实体，并且会自动地将一个租户的实体从其他实体中分离出来。</p>
+<h2 id="IMayHaveTenant接口"><a href="#IMayHaveTenant接口" class="headerlink" title="IMayHaveTenant接口"></a>IMayHaveTenant接口</h2><p>我们可能需要在租户和租户之间共享一个实体类型。因此，一个实体可能会被一个租户或租主拥有。IMayHaveTenant接口也定义了TenantId(类似于IMustHaveTenant)，但在这种情况下是nullable。实现了IMayHaveTenant的一个实体例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Role : Entity, IMayHaveTenant</span><br><span class="line">&#123;</span><br><span class="line">    public int? TenantId &#123; get; set; &#125;</span><br><span class="line">        </span><br><span class="line">    public string RoleName &#123; get; set; &#125;</span><br><span class="line">    </span><br><span class="line">    //...其他属性</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们可能会使用相同的Role类来存储租主角色和租户角色。这种情况下，TenantId表明这是一个租户实体还是一个租主实体。null值表示这是一个租主实体，非null值表示这被一个租户拥有，该租户的Id是TenantId。</p>
+<p>IMayHaveTenant不像IMustHaveTenant一样常用。比如，一个Product类可以不实现IMayHaveTenant接口，因为Product和实际的应用功能相关，和管理租户不相干。因此，要小心使用IMayHaveTenant接口，因为它更难维护租户和租主共享的代码。</p>
+<h2 id="保存实体"><a href="#保存实体" class="headerlink" title="保存实体"></a>保存实体</h2><p>一个租户用户不应该创建或编辑其他租户的实体。如果相关的数据过滤器开启了，那么ABP会检查该实体相对于数据库的改变。</p>
+<h2 id="ABP对多租户的支持"><a href="#ABP对多租户的支持" class="headerlink" title="ABP对多租户的支持"></a>ABP对多租户的支持</h2><p>在模块的PreInitialize方法中开启多租户模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Configuration.MultiTenancy.IsEnabled = true;</span><br></pre></td></tr></table></figure></p>
+<p>ABP中内置了处理TenantId的机制（通过接口IMustHaveTenant或IMayHaveTenant来实现）。实体实现了IMustHaveTenant接口，会包含一个不能为空的TenantId属性，即意味着其中的数据库需要基于TenantId来进行隔离。实现了IMayHaveTenant接口，会包含一个能为空的TenantId属性，在TenantId为空的时候代表数据属于主机范围的，不为空的时候表示数据基于租户来隔离。</p>
+<p>而ABP通过一个特殊封装的IAbpSession来给使用者提供当前TenantId的获取，如果是主机用户登录系统，那么TenantId就是为空的，否则就是登录用户所在租户的Id。</p>
+<h2 id="ABP在多租户下读取数据"><a href="#ABP在多租户下读取数据" class="headerlink" title="ABP在多租户下读取数据"></a>ABP在多租户下读取数据</h2><p>ABP并非只是简单的给你的实体类添加一个TenantId属性，而是通过识别IMustHaveTenant或IMayHaveTenant接口，使用数据过滤机制（根据底层所用ORM不同有不同的实现方式）自动在你读取数据的时候，基于当前AbpSession中的TenantId来过滤数据。也就是说，你查询读取数据的时候，写“where item.TenantId == AbpSession.TenantId” 这样的代码是毫无必要的。</p>
+<p>需要注意的是，如果实体实现的是IMustHaveTenant接口，且AbpSession.TenantId为null的时候（即主机用户），获取到的数据是所有租户的，除非你自己显式进行过滤。而在IMayHaveTenant情况下，AbpSession.TenantId为null获取到的是主机用户的数据。</p>
+<h2 id="ABP在多租户下写入数据"><a href="#ABP在多租户下写入数据" class="headerlink" title="ABP在多租户下写入数据"></a>ABP在多租户下写入数据</h2><p>在多租户的情形下，写入数据也通过拦截机制（比如重写DbContext的SaveChanges方法），可以自动为你的实体设置TenantId属性，不管你用的是IMustHaveTenant还是IMayHaveTenant。虽然官方文档是推荐在创建实体的时候，总是显示设置TenantId的，尤其在使用IMayHaveTenant的时候（这也是abp使用者唯一需要关系这个属性的地方）。但是，就我个人的看法而言，利用框架的原因就是为了让编码简单，所以我还是倾向于建议大家不用显式设置TenantId。</p>
+<p>参考资料：<a href="http://www.aspnetboilerplate.com/Pages/Documents/Multi-Tenancy" target="_blank" rel="noopener">ABP多租户官方文档</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2017/03/20/ABP、SaaS与多租户/" data-id="ck5w3eljp0002sw7kldg8mhr3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-持续集成与jenkins" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/19/持续集成与jenkins/" class="article-date">
+  <time datetime="2017-03-19T03:19:01.000Z" itemprop="datePublished">2017-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/19/持续集成与jenkins/">持续集成与jenkins</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="持续集成"><a href="#持续集成" class="headerlink" title="持续集成"></a>持续集成</h1><p>开发中，我们经常遇到一些奇怪问题，比如本地可以编译成功的代码但是同事们更新代码后编译出错，或者在项目有多个Target的时候，资源文件只添加到了当前的Target，另外一个Target这个时候是不能正常编译的，再比如写的工具类，被同事改了，或者自己有改动，很多地方用到了，怎么保证这个类的行为没有发生变化而影响到项目中的其它模块呢？诸如此类。</p>
+<p>那么这些问题原因在哪，可否避免呢？当然是可以避免的，如果代码有新的改动，提交到版本库中的时候，有专人检查必要事项，并进行测试。</p>
+<p>引起各种奇怪问题的原因有很多，比如开发环境比较复杂不干净，IDE的bug，提交前有一些必要的检查需要做，但是开发时因为各种原因没做，这些机械重复的事情我们可以找一个工具来帮我们完成，而且这个工具跑在一个专门的服务器上，该服务器环境相对干净，可以运行一些自动化操作，而自动编译，代码检查，测试等环节，那么这种东西，就是接下来讲的［持续集成］。</p>
+<p>持续集成是指为解决程序代码提交质量低，提交内容导致原有系统的bug，按时或按需自动编译版本，自动进行自动化测试的实践工作。</p>
+<h2 id="持续集成的特性："><a href="#持续集成的特性：" class="headerlink" title="持续集成的特性："></a>持续集成的特性：</h2><ol>
+<li><p>对重复的编译发布等操作进行抽象，减少重复过程。</p>
+</li>
+<li><p>及早发现各种冲突和错误，减少风险。</p>
+</li>
+<li><p>任何时间、任何地点生成可部署的软件</p>
+</li>
+</ol>
+<h2 id="持续集成方案："><a href="#持续集成方案：" class="headerlink" title="持续集成方案："></a>持续集成方案：</h2><p>实践持续集成方案，需要一些必要条件</p>
+<ol>
+<li><p>一个自动构建过程，包括自动编译、分发、部署和测试等</p>
+</li>
+<li><p>一个代码存储库，即需要版本控制软件来保障代码的可维护性，同时作为构建过程的素材库。</p>
+</li>
+<li><p>一个持续集成服务器。</p>
+</li>
+</ol>
+<p>自动化构建成过程，可帮助我们节省大量时间，完成这个过程的自动化后，在以后的开发过程中，我们需要做的，就是只是提交代码到版本库中，构建自动完成，基本不再需要人工干预。</p>
+<p>代码仓库作为构建的素材库，构建所需的代码从代码库中获得。</p>
+<p>最好有一台服务器单独作为持续集成服务器，一方面保证了环境的纯净，一方面不影响开发，而且持续集成服务器一般是随时准备开始构建的，所以一般也不关机。</p>
+<p>首先要有统一的代码库，服务器不断从版本控制服务器上检查代码状态，看代码是否有更新。如果发现有代码更新，那么就从版本控制服务器下载最新的代码。等代码完全更新以后，调用自动化编译脚本，进行代码编译。然后运行所有的自动化测试，并且进行代码分析。如果其中任何一个步骤失败，就表示build失败，持续集成服务器会给予响应的反馈。每次代码提交之后，都会在持续集成服务器上触发一个定时构建，然后进行编译、部署。</p>
+<h2 id="持续集成原则"><a href="#持续集成原则" class="headerlink" title="持续集成原则:"></a>持续集成原则:</h2><ol>
+<li><p>开发人员必须及时向版本控制库中提交代码，也必须经常性地从版本控制库中更新代码到本地；</p>
+</li>
+<li><p>需要有专门的集成服务器来执行集成构建。根据项目的具体实际，集成构建可以被软件的修改来直接触发，也可以定时启动，如每半个小时构建一次；</p>
+</li>
+<li><p>必须保证构建的成功。如果构建失败，修复构建过程中的错误是优先级最高的工作。一旦修复，需要手动启动一次构建。</p>
+</li>
+<li><p>不更新构建失败的代码</p>
+</li>
+</ol>
+<p>开发人员及时的提交代码进行构建是符合上述实践的，及时拉取代码可以防止工作中的分支偏离主干分支太多。定时触发构建或者通过检测代码的修改情况在触发构建都是可以的，主要是根及时的构建新的代码。如果构建失败，则必要及时处理导致失败的问题，修复后重新构建。当然构建失败的代码就不要拉到本地了，会污染一个本来是可以运行的工作区。</p>
+<h1 id="持续集成工具jenkins"><a href="#持续集成工具jenkins" class="headerlink" title="持续集成工具jenkins"></a>持续集成工具jenkins</h1><p>jenkins作为持续集成工具比较常用，各种开发实践都可以通过大量的插件来组合实现，可定制性很好。</p>
+<blockquote>
+<p>jenkins是一个开源项目，提供了一种易于使用的持续集成系统，使开发者从繁杂的集成中解脱出来，专注于更为重要的业务逻辑实现上。同时 Jenkins 能实施监控集成中存在的错误，提供详细的日志文件和提醒功能，还能用图表的形式形象地展示项目构建的趋势和稳定性。— 维基百科</p>
+</blockquote>
+<h2 id="Jenkins功能"><a href="#Jenkins功能" class="headerlink" title="Jenkins功能:"></a>Jenkins功能:</h2><p>1.定时拉取代码并编译</p>
+<p>2.静态代码分析</p>
+<p>3.定时打包发布测试版</p>
+<p>4.自定义额外的操作，如跑单元测试等</p>
+<p>5.出错提醒</p>
+<p>基本上都是持续集成实践中的要求和周边的一些实现措施，如提醒功能等，出错后及时提醒开发者修复，Jenkins 中通过配置 SMTP 配置信息（这个一般的邮件服务提供商都有提供），邮件模板等，创建事件触发器，在事件（如编译失败）发生时，及时发送邮件通知开发者，挺方便的。</p>
+<p>Jenkins 有很多种触发构建的方式，如 webhook，定时更新代码等，同时可以在触发构建后执行自定义的构建操作，通过编辑自定义的构建脚本，几乎可以进行任何构建操作。</p>
+<h2 id="Jenkins理解"><a href="#Jenkins理解" class="headerlink" title="Jenkins理解"></a>Jenkins理解</h2><p><img src="/img/持续集成与Jenkins/jenkins.png" alt="Jenkins理解"></p>
+<p>这里是选择Gitlab作为git server。Gitlab的功能和Github差不多，但是是开源的，可以用来搭建私有git server，也提供非常强大的web GUI，比如开发者互相review源代码的时候就会很方便。</p>
+<p>系统的工作流程大概分为以下几步:</p>
+<ol>
+<li><p>开发者将新版本push到git server (Gitlab)。</p>
+</li>
+<li><p>Gitlab随后触发jenkins master结点进行一次build。(通过web hook或者定时检测)</p>
+</li>
+<li><p>jenkins master结点将这个build任务分配给若干个注册的slave结点中的一个，这个slave结点根据一个事先设置好的脚本进行build。这个脚本可以做的事情很多，比如编译，测试，生成测试报告等等。这些原本需要手动完成的任务都可以交给jenkins来做。</p>
+</li>
+<li><p>我们在build中要进行编译，这里使用了分布式编译器distcc来加快编译速度。</p>
+</li>
+</ol>
+<p>注意：</p>
+<p>jenkins的工作原理是先将源代码从gitlab中拷贝一份到本地，然后根据设置的脚本进行build。我们可以看出，整个系统的关键就是那个build脚本，用来告诉jenkins在一次集成中需要执行的任务。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2017/03/19/持续集成与jenkins/" data-id="ck5w3ell0000dsw7kmee00qes" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ABP框架" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/17/ABP框架/" class="article-date">
+  <time datetime="2017-03-17T12:25:01.000Z" itemprop="datePublished">2017-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/17/ABP框架/">ABP框架</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ABP简介"><a href="#ABP简介" class="headerlink" title="ABP简介"></a>ABP简介</h1><p>我们根据不同的需求，会开发出各种应用程序。但是在不同系统开发的过程中，我们总会遇到很多具有通用性的程序结构。例如<strong>授权、认证、异常处理、日志、本地化、数据库链接、配置管理、审计日志</strong>等具有通用性的程序结构。软件工程师们通过<strong>分层、模块化架构、领域驱动设计、依赖注入</strong>等方法追寻着最佳实践相关的软件架构。同时会基于一些良好的习惯进行程序开发。</p>
+<p>在以前，以上所述的工作会耗费大量时间，并且很难从每个项目中解耦分离，很多公司搭建了自己的框架，用于快速开发及调试程序。事实上，并不是每一家公司都能够有搭建优质框架的能力，以及<strong>整理相关文档、对其进行维护</strong>。</p>
+<p>ASP.NET Boilerplate (ABP)是一个<strong>开源且文档丰富的应用框架</strong>，ABP的愿景是成为一个能够适用于所有公司和所有开发人员的<strong>通用框架</strong>。它的意义不仅仅是一个程序框架，同时也提供了一种健壮的、基于<strong>领域驱动设计及最佳实践</strong>的<strong>架构模型</strong>。</p>
+<h1 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h1><p>通过一个简单的示例来体验ABP的特性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class TaskAppService : Application, ITaskAppService</span><br><span class="line">&#123;</span><br><span class="line">    private readonly IRepository&lt;Task&gt; _taskRepository;</span><br><span class="line"></span><br><span class="line">    public TaskAppService(IRepository&lt;Task&gt; taskRepository)</span><br><span class="line">    &#123;</span><br><span class="line">        _taskRepository = taskRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [AbpAuthorize(MyPermission.UpdatingTasks)]</span><br><span class="line">    public async Task UpdateTask(UpdateTaskInput input)</span><br><span class="line">    &#123;</span><br><span class="line">        Logger.Info(&quot;更新任务信息情况：&quot; + input);</span><br><span class="line"></span><br><span class="line">        var task = await _taskRepository.FirstOrDefaultAsync(input.TaskId);</span><br><span class="line">        if(task == null)</span><br><span class="line">        &#123;</span><br><span class="line">            throw new UserFriendlyException(L(&quot;未找到任务信息&quot;));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        input.MapTo(task);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们展示了应用层的一个方法。在领域驱动设计中，应用层的作用是为展现层实现其相关的用例。我们可以认为UpdateTask这个方法会通过AJAX被调用。而ABP具有如下特性：</p>
+<ul>
+<li>依赖注入</li>
+<li>仓储</li>
+<li>授权</li>
+<li>验证</li>
+<li>审计日志</li>
+<li>工作单元</li>
+<li>异常处理</li>
+<li>日志</li>
+<li>本地化</li>
+<li>自动映射</li>
+<li>动态WebApi层</li>
+<li>动态AJAX代理</li>
+</ul>
+<p>我们通过这个简单的示例就可以看到这些特性。这些工作通常需要大量的时间，但是现在它们都由ABP框架自动处理。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2017/03/17/ABP框架/" data-id="ck5w3elkz000csw7krwuke9bg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-针对高并发、高吞吐的应用设计思路" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/07/针对高并发、高吞吐的应用设计思路/" class="article-date">
+  <time datetime="2017-03-07T14:03:31.000Z" itemprop="datePublished">2017-03-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/07/针对高并发、高吞吐的应用设计思路/">针对高并发、高吞吐的应用设计思路</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h1><p>解决高并发要有思维宽度，需要从功能、使用、设计、数据库、缓存、OS各个层面去思考及其解决方法，深入的剖析的各个场景；同时针对高并发也要有一定的技术深度，考虑到应用程序的高并发性能,主要按如下几个思路进行方案设计。</p>
+<h2 id="数据评估"><a href="#数据评估" class="headerlink" title="数据评估"></a>数据评估</h2><p>对应用需要负载的数据量进行评估，数据以理想状态的发展为基础进行库表设计。根据数据量级，制定数据库策略(是否需要对数据库进行分库分表处理)。</p>
+<h2 id="应用性能评估"><a href="#应用性能评估" class="headerlink" title="应用性能评估"></a>应用性能评估</h2><p>对应用的性能进行评估，如应用需要10W用户同时在线通信。</p>
+<h2 id="网络性能分析"><a href="#网络性能分析" class="headerlink" title="网络性能分析"></a>网络性能分析</h2><ul>
+<li>网络负载，包括公网负载和内网负载</li>
+<li>应用服务器性能，包括CPU、内存、硬盘I/O访问、并发TCP/IP连接</li>
+<li>数据库服务器性能，包括参数配置、服务器性能（CPU、内存、硬盘）、数据结构的合理性</li>
+<li>不同的网络，不同WEB请求的处理方式，包括静态数据和动态数据</li>
+</ul>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><ul>
+<li>主要难点是环上节点分布均衡与节点处理请求数均衡：</li>
+<li>DNS负载均衡</li>
+<li>软四层交换负载均衡</li>
+<li>反向代理实现负载均衡，并实现页码请求缓存</li>
+</ul>
+<h2 id="数据存储设计思路"><a href="#数据存储设计思路" class="headerlink" title="数据存储设计思路"></a>数据存储设计思路</h2><ul>
+<li>数据库拆分，读写分离（主写，备读）</li>
+<li>将热数据保存进LRU队列中，提高CPU处理速度，主要针对数据库中高频、小字段进行缓存，保证50%的命中率才值得缓存IO开销。</li>
+<li>分布式Key-Value存储系统存储关键性信息</li>
+<li>采用高效的网络文件共享策略，采用图片服务器来实现页面的图片存储</li>
+</ul>
+<h2 id="不同网络用户访问考虑"><a href="#不同网络用户访问考虑" class="headerlink" title="不同网络用户访问考虑"></a>不同网络用户访问考虑</h2><ul>
+<li>引入CDN来解决不同网络服务商的接入速度问题</li>
+<li>在不同运营商机房部署服务器，通过镜像技术来实现不同网络服务商的接入速度问题</li>
+<li>通过域名解析，访问所在网络运营商的nginx，然后通过专线传输到异地局域网访问应用服务器</li>
+<li>租用代理结点，转发请求</li>
+</ul>
+<h2 id="不同地域用户访问考虑"><a href="#不同地域用户访问考虑" class="headerlink" title="不同地域用户访问考虑"></a>不同地域用户访问考虑</h2><ul>
+<li>不同区域部署服务器</li>
+<li>DNS解析域名指向该地域所在接入的nginx，Nginx通过专线内网访问应用服务器。</li>
+<li>租用代理结点，转发请求</li>
+</ul>
+<h2 id="高并发-高负载-的定义"><a href="#高并发-高负载-的定义" class="headerlink" title="高并发(高负载)的定义"></a>高并发(高负载)的定义</h2><ul>
+<li>CPU/内存开销，都有哪些进程和服务占用，IO开销，服务读写频率；</li>
+<li>增长趋势线性增加、指数增加(无索引遍历)、收敛增加(支撑性)；</li>
+<li>系统阀值请求超越了OS阀值：如https超时太长导致https超过最大值；mysql链接越界；</li>
+<li>峰谷的规律和预测原因分析；</li>
+<li>异常的监控和跟踪异常比例不超过万分之几可以忽略，而千分之几就要去研究了。</li>
+</ul>
+<h2 id="数据容灾"><a href="#数据容灾" class="headerlink" title="数据容灾"></a>数据容灾</h2><ul>
+<li>备份恢复，提供如何进行备份以及进行恢复工作</li>
+<li>备份策略，提供不同备份策略，应对各种情况数据恢复问题，例如数据库升级</li>
+<li>灾难演练，发生灾难后是否能继续提供正常服务</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2017/03/07/针对高并发、高吞吐的应用设计思路/" data-id="ck5w3ell8000isw7kn6fj09h4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-前端技术栈" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/06/前端技术栈/" class="article-date">
+  <time datetime="2017-03-06T13:30:25.000Z" itemprop="datePublished">2017-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/06/前端技术栈/">前端技术栈</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/img/front-end.jpg" alt="前端技术栈"></p>
+<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><h2 id="框架集"><a href="#框架集" class="headerlink" title="框架集"></a>框架集</h2><ul>
+<li><a href="https://github.com/parallel-js/parallel.js" target="_blank" rel="noopener">parallel.js</a>: 前后端通用的一个并行库</li>
+<li><a href="https://github.com/madrobby/zepto" target="_blank" rel="noopener">zepto</a>: 用于现代浏览器的兼容 jQuery 的库</li>
+<li><a href="https://github.com/totorojs/totoro" target="_blank" rel="noopener">totoro</a>: 稳定的跨浏览器测试工具</li>
+<li><a href="https://github.com/Zhouzi/TheaterJS" target="_blank" rel="noopener">TheaterJS</a>: 一个用于模拟人输入状态的 JS 库</li>
+<li><a href="https://github.com/markdalgleish/stellar.js" target="_blank" rel="noopener">stellar.js</a>: 前端用于实现异步滚动效果的库，现已不再维护</li>
+<li><a href="https://github.com/Prinzhorn/skrollr" target="_blank" rel="noopener">skrollr</a>: 另一款实现一步滚动的开源库，使用人数众多，可实现各种狂拽酷炫掉渣天的前端效果，看真相</li>
+<li><a href="https://github.com/nolimits4web/Framework7" target="_blank" rel="noopener">Framework7</a>: 前端框架，是开发人员可以基于 web 技术构建 IOS7 程序</li>
+<li><a href="https://github.com/JexCheng/regulex" target="_blank" rel="noopener">regulex</a>: 用于生成 正则表达式 的可视化流程图</li>
+<li><a href="https://github.com/markdown-it/markdown-it" target="_blank" rel="noopener">markdown-it</a>: 新型 Markdown 解析器，快速，支持插件</li>
+<li><a href="https://github.com/sindresorhus/multiline" target="_blank" rel="noopener">multiline</a>: 用于 Javascript 中的多行文本，类似于 Ruby 的 HERE Doc</li>
+<li><a href="https://github.com/sindresorhus/screenfull.js" target="_blank" rel="noopener">screenfull.js</a>: 全屏插件，支持各大浏览器</li>
+<li><a href="https://github.com/olivernn/lunr.js" target="_blank" rel="noopener">lunr.js</a>: 类似于 Solr, 但是用于浏览器上的全文搜索引擎，可以为 JSON 创建索引，离线也可以使用</li>
+<li><a href="https://github.com/jeresig/jquery.hotkeys" target="_blank" rel="noopener">jquery.hotkeys: jQuery</a> 插件，用于绑定热键</li>
+<li><a href="https://github.com/breach/breach_core" target="_blank" rel="noopener">breach_core</a>: Javascript 编写的 Browser (浏览器)</li>
+<li><a href="https://github.com/zmmbreeze/octocard" target="_blank" rel="noopener">octocard</a>: 用于生成 Github 信息卡片的库</li>
+<li><a href="https://github.com/lepture/github-cards" target="_blank" rel="noopener">github-cards</a>: 用于生成 Github 信息卡片的库</li>
+<li><a href="https://github.com/openexchangerates/money.js" target="_blank" rel="noopener">money.js</a>: 轻量级货币转换库，web 和 node 皆可用</li>
+<li><a href="https://github.com/openexchangerates/accounting.js" target="_blank" rel="noopener">accounting.js</a>: 轻量级的数字、货币转换库</li>
+<li><a href="https://github.com/mgechev/javascript-algorithms" target="_blank" rel="noopener">javascript-algorithms</a>: Javascript 实现的各种算法集合</li>
+<li><a href="https://github.com/dtao/lazy.js" target="_blank" rel="noopener">lazy.js</a>: 类似于 underscore, 但是会延迟执行，某些场景下，性能会有很大的提升</li>
+<li><a href="https://github.com/seajs/seajs" target="_blank" rel="noopener">seajs</a>: 前端模块加载器，解决模块化、依赖等问题</li>
+<li><a href="https://github.com/davist11/jQuery-One-Page-Nav" target="_blank" rel="noopener">jQuery-One-Page-Nav</a>: 单页应用中一个用于处理导航栏的库</li>
+<li><a href="https://github.com/js-js/js.js" target="_blank" rel="noopener">js.js</a>: Javascript 实现的 javascript JIT</li>
+<li><a href="https://github.com/jquery/jquery-ui" target="_blank" rel="noopener">jquery-ui</a>: jQuery 团队开发的 UI 相关的前端库，功能强大</li>
+<li><a href="https://github.com/tastejs/todomvc" target="_blank" rel="noopener">todomvc</a>: 分别基于 AngularJS/EmberJS/Backbone等实现的 TODO List, 帮助开发者选择前端 MVC 库</li>
+<li><a href="https://github.com/localForage/localForage" target="_blank" rel="noopener">localForage</a>: Mozilla 出品，用于离线存储，基于IndexedDB, WebSQL 或者localStorage，提供一致的接口</li>
+<li><a href="https://github.com/Olical/EventEmitter" target="_blank" rel="noopener">EventEmitter</a>: 浏览器版的 EventEmitter</li>
+<li><a href="https://github.com/marioizquierdo/jquery.serializeJSON" target="_blank" rel="noopener">jquery.serializeJSON</a>: jQuery 插件，用于将 form 表单序列化成 JSON 数据</li>
+<li><a href="https://github.com/knockout/knockout" target="_blank" rel="noopener">knockout</a>: 前端 MVVM 框架，用于开发富前端应用</li>
+<li><a href="https://github.com/knsv/mermaid" target="_blank" rel="noopener">mermaid</a>: 可以根据文本生成流程图，类似于 Markdown 的语法</li>
+<li><a href="https://github.com/bramp/js-sequence-diagrams" target="_blank" rel="noopener">js-sequence-diagrams</a>: 另一款可以根据文本生成流程图的库，类似于 Markdown 的语法</li>
+<li><a href="https://github.com/facebook/flow" target="_blank" rel="noopener">flow</a>: 一个用来检测 Javascript 语法错误的库， Facebook 出品</li>
+<li><a href="https://github.com/jaukia/zoomooz" target="_blank" rel="noopener">zoomooz</a>: jQuery 插件，用来处理浏览器缩放</li>
+<li><a href="https://github.com/fancyapps/fancyBox" target="_blank" rel="noopener">fancyBox</a>: 一个用于放大缩小图片、Web 内容或者多媒体元素的库，优雅大方</li>
+<li><a href="https://github.com/lhorie/mithril.js" target="_blank" rel="noopener">mithril.js</a>: 轻量型前端 MVC 框架，部分使用场景下性能优于 Angular.js 和 React</li>
+<li><a href="https://github.com/jashkenas/backbone" target="_blank" rel="noopener">backbone</a>: 强大的前端 MVC 库，鼻祖级前端库，最初为了配合 Rails 来模块化前端应用，兼容性良好 (兼容到 IE6)，插件丰富，性能良好</li>
+<li><a href="https://github.com/jasny/jquery.smartbanner" target="_blank" rel="noopener">jquery.smartbanner: smartbanner</a> 是从 IOS6 开始支持的一个新特性, 这个插件提供了对早期 IOS4/5 和 Android 的支持</li>
+<li><a href="https://github.com/flesler/jquery.scrollTo" target="_blank" rel="noopener">jquery.scrollTo</a>: 在页面上以一个元素为起始以动画的方式移动(ScrollTo)到另一个元素， 支持回退等</li>
+<li><a href="https://github.com/vitch/jScrollPane" target="_blank" rel="noopener">jScrollPane</a>: 自定义的滚动条，让所有浏览器都显示一样的滚动条</li>
+<li><a href="https://github.com/peachananr/onepage-scroll" target="_blank" rel="noopener">onepage-scroll</a>: 提供类似于 iPhone6 展示页类似的效果，适用于单页应用，兼容到 IE8</li>
+<li><a href="https://github.com/sakabako/scrollMonitor" target="_blank" rel="noopener">scrollMonitor</a>: 前端插件用来监控元素的滚动事件(进入、退出等)，性能很好</li>
+<li><a href="https://github.com/janpaepke/ScrollMagic" target="_blank" rel="noopener">ScrollMagic</a>: 神奇的滚动交互效果插件，可以在滚动的过程中设置各种各样的动态效果</li>
+<li><a href="https://github.com/infinite-scroll/infinite-scroll" target="_blank" rel="noopener">infinite-scroll</a>: 滚动加载，滚动到最下到自动加载， Paul Irish 大神之作</li>
+<li><a href="https://github.com/LeaVerou/animatable" target="_blank" rel="noopener">animatable</a>: 仅仅依靠 border-width 和 background-position 实现的各种动态效果，看真相</li>
+<li><a href="https://github.com/terrymun/Fluidbox" target="_blank" rel="noopener">Fluidbox</a>: 页面上内嵌图片的放大缩小效果，类似于 Medium 中的效果</li>
+<li><a href="https://github.com/jquery-validation/jquery-validation" target="_blank" rel="noopener">jquery-validation</a>: jQuery 的一个插件，用于校验 Form 表单</li>
+<li><a href="https://github.com/dfcb/BigVideo.js" target="_blank" rel="noopener">BigVideo.js</a>: jQuery 的一个插件, 用于实现大背景(视频、图片)效果</li>
+<li><a href="https://github.com/kripken/emscripten" target="_blank" rel="noopener">emscripten</a>: 一款基于 LLVM, 可以将 C/C++ 转换成 Javascript 的工具，使得 Javascript 可以近乎 Native 的速度</li>
+<li><a href="https://github.com/kazuhikoarase/qrcode-generator" target="_blank" rel="noopener">qrcode-generator</a>: 各种语言的二维码生成工具</li>
+<li><a href="https://github.com/matthewhudson/device.js" target="_blank" rel="noopener">device.js</a>: 一个可以检测设备类型的工具，可以让我们根据不同的设备来为其定制响应的 Javascript 和 CSS</li>
+<li><a href="https://github.com/jeromeetienne/jquery-qrcode" target="_blank" rel="noopener">jquery-qrcode</a>: jQuery 插件，用来生成二维码</li>
+<li><a href="https://github.com/germanysbestkeptsecret/Wookmark-jQuery" target="_blank" rel="noopener">Wookmark-jQuery</a>: jQuery 的一个插件，可以用来实现瀑布流的效果</li>
+<li><a href="https://github.com/metafizzy/isotope" target="_blank" rel="noopener">isotope</a>: 可以用来过滤、排列布局，实现美观的动态布局切换效果，Demo</li>
+<li><a href="https://github.com/aFarkas/lazysizes" target="_blank" rel="noopener">lazysizes</a>: 功能强大的图片延迟加载工具，可以首先加载一个低质量的图片，然后再加载高质量的图片</li>
+<li><a href="https://github.com/kimmobrunfeldt/progressbar.js" target="_blank" rel="noopener">progressbar.js</a>: 简洁美观的进度条，扁平化</li>
+<li><a href="https://github.com/pigshell/pigshell" target="_blank" rel="noopener">pigshell</a>: 一个由 Javascript 实现的Shell, 将互联网当做一个大的文件系统, 通过 cd/ls/cat…..等命令, 可以访问 Facebook/Twitter/Google Drive 等网络服务</li>
+<li><a href="https://github.com/bgrins/spectrum" target="_blank" rel="noopener">spectrum</a>: Js实现的颜色选择器 (Colorpicker)</li>
+<li><a href="https://github.com/hilios/jQuery.countdown" target="_blank" rel="noopener">jQuery.countdown</a>: jQuery 倒计时插件</li>
+<li><a href="https://github.com/summernote/summernote" target="_blank" rel="noopener">summernote</a>: WYSIWYG 富文本编辑器</li>
+<li><a href="https://github.com/LeaVerou/awesomplete" target="_blank" rel="noopener">awesomplete</a>: 非常轻型的一个自动补全 JS 库, 没有任何依赖, 配置简单, 美观</li>
+<li><a href="https://github.com/abpetkov/switchery" target="_blank" rel="noopener">switchery</a>: IOS 7 上 Switch 的 JS 实现, 支持 IE8 及以上浏览器</li>
+<li><a href="https://github.com/basecamp/trix" target="_blank" rel="noopener">trix</a>: Basecamp 公司出品的富文本编辑器，简洁小巧</li>
+<li><a href="https://github.com/branding-fe/sensor" target="_blank" rel="noopener">sensor.js</a>: 在智能移动设备浏览器上，通过HTML5的api使用移动设备的功能。定位、运动、倾斜等</li>
+<li><a href="https://github.com/maciejczyzewski/hyhyhy" target="_blank" rel="noopener">hyhyhy</a>: 用于创建 基于 HTML5 的 演示文稿</li>
+<li><a href="https://github.com/brutaldesign/swipebox" target="_blank" rel="noopener">swipebox</a>: jQuery 插件，用于处理移动端的触摸事件</li>
+<li><a href="https://github.com/mailru/FileAPI" target="_blank" rel="noopener">FileAPI</a>: 前端用户处理文件（拖放、多文件上传等）</li>
+<li><a href="https://github.com/RubaXa/Sortable" target="_blank" rel="noopener">Sortable</a>: 现代浏览器上用于实现元素拖拽排序的功能，支持 Meteor, AngularJS, React，不依赖 jQuery</li>
+<li><a href="https://github.com/nolimits4web/Swiper" target="_blank" rel="noopener">Swiper</a>: 用于实现浏览器上的滑动切换效果，支持硬件加速</li>
+<li><a href="https://github.com/liabru/matter-js" target="_blank" rel="noopener">matter-js</a>: 2D 物理效果引擎，碰撞、弹跳等</li>
+<li><a href="https://github.com/senchalabs/jQTouch" target="_blank" rel="noopener">jQTouch</a>: 用于辅助创建手机端的 Web 应用，支持主题、Zepto.js 等</li>
+<li><a href="https://github.com/daniel-lundin/snabbt.js" target="_blank" rel="noopener">snabbt.js</a>: 一个利用 Javascript 和 CSS transform 的 animation 库</li>
+<li><a href="https://github.com/c3js/c3" target="_blank" rel="noopener">c3</a>: 基于 D3 的图表库</li>
+<li><a href="https://github.com/ecomfe/echarts" target="_blank" rel="noopener">echarts</a>: 企业级图表库，百度开发</li>
+<li><a href="https://github.com/wagerfield/parallax" target="_blank" rel="noopener">parallax.js</a>: 一个用于响应智能手机 orientation 的库</li>
+<li><a href="https://github.com/benbarnett/jQuery-Animate-Enhanced" target="_blank" rel="noopener">jQuery-Animate-Enhanced</a>: jQuery 动画库的一个增强，用于现代浏览器</li>
+<li><a href="https://github.com/Voog/wysihtml" target="_blank" rel="noopener">wysihtml</a>: 富文本编辑器，适用于现代浏览器</li>
+<li><a href="https://github.com/pornel/slip" target="_blank" rel="noopener">slip</a>: 一个通过滑动或者拖拽来操控列表的库</li>
+<li><a href="https://github.com/evil-icons/evil-icons" target="_blank" rel="noopener">evil-icons</a>: 一个矢量图库，提供 Ruby/Node 等支持</li>
+<li><a href="https://github.com/dimsemenov/PhotoSwipe" target="_blank" rel="noopener">PhotoSwipe</a>: JS 的一个图片展示库</li>
+<li><a href="https://github.com/zzarcon/focusable" target="_blank" rel="noopener">focusable</a>: 是页面上一个元素高亮的库，有图有真相</li>
+<li><a href="https://github.com/paulrouget/firefox.html" target="_blank" rel="noopener">firefox.html</a>: Firefox 在浏览器端的实现 —— HTML 版的 Firefox</li>
+<li><a href="https://github.com/jquery/jquery-mobile" target="_blank" rel="noopener">jquery-mobile</a>: jQuery 团队开发的用于辅助手机端 web app 开发的库，基于 HTML5</li>
+<li><a href="https://github.com/mcasimir/mobile-angular-ui" target="_blank" rel="noopener">mobile-angular-ui</a>: 基于angularjs和bootstarp的web app开发框架</li>
+<li><a href="https://github.com/taye/interact.js" target="_blank" rel="noopener">interact.js</a>: 一个适用于现代浏览器的，用于处理 手势、拖放、缩放等的库</li>
+<li><a href="https://github.com/facebook/rebound-js" target="_blank" rel="noopener">rebound-js</a>: 实现部分物理效果，Facebook 出品</li>
+<li><a href="https://github.com/addyosmani/basket.js" target="_blank" rel="noopener">basket.js</a>: 基于 LocalStorage 的资源加载器，可以用来缓存 script 和 css, 手机端使用速度快于浏览器直接缓存</li>
+<li><a href="https://github.com/cubiq/iscroll" target="_blank" rel="noopener">iscroll</a>: 高性能的滚动(scroll)处理库，功能强大，支持各种事件，不依赖任何的库，且插件丰富, 大众点评的手机端列表滚动就是用这个库处理的</li>
+<li><a href="https://github.com/mozilla/metrics-graphics" target="_blank" rel="noopener">metrics-graphics</a>: 基于 D3 的图表库，简洁、高效，Mozilla 出品</li>
+<li><a href="https://github.com/paypal/accessible-html5-video-player" target="_blank" rel="noopener">accessible-html5-video-player</a>: Paypal 出品的 Video 播放器</li>
+<li><a href="https://github.com/jxnblk/loading" target="_blank" rel="noopener">loading</a>: 几种 Loading 效果，基于 SVG</li>
+<li><a href="https://github.com/mintchaos/flippant.js" target="_blank" rel="noopener">flippant.js</a>: 一款能够漂亮的网页元素翻转效果库，代码许久不更新，不过作为源码学习还是不错的</li>
+<li><a href="https://github.com/visionmedia/move.js" target="_blank" rel="noopener">move.js</a>: 基于 CSS3 的前端动画框架</li>
+<li><a href="https://github.com/jlmakes/scrollreveal" target="_blank" rel="noopener">scrollReveal.js</a>: 使元素以非常酷帅的方式进入画布 (Viewpoint)，看 Demo</li>
+<li><a href="https://github.com/Modernizr/Modernizr" target="_blank" rel="noopener">Modernizr</a>: 一个用来检测 HTML5 和 CSS3 支持情况的库</li>
+<li><a href="https://github.com/zurb/foundation-sites" target="_blank" rel="noopener">foundation</a>: 另一款前端模版框架，类似于 Bootstrap</li>
+<li><a href="https://github.com/designmodo/Flat-UI" target="_blank" rel="noopener">Flat-UI</a>: Bootstrap 的一款主题，简洁美观</li>
+<li><a href="https://github.com/fronteed/iCheck" target="_blank" rel="noopener">iCheck</a>: 一款漂亮的 Checkbox 插件</li>
+<li><a href="https://github.com/lyfeyaj/Swipe" target="_blank" rel="noopener">Swipe</a>: 非常轻量级的一个图片滑动切换效果库, 性能良好, 尤其是对手机的支持, 压缩后的大小约 5kb</li>
+<li><a href="https://github.com/kenwheeler/slick" target="_blank" rel="noopener">slick</a>: 功能异常强大的一个图片滑动切换效果库</li>
+<li><a href="https://github.com/t4t5/SocialButtons" target="_blank" rel="noopener">SocialButtons</a>: 漂亮的社交按钮</li>
+<li><a href="https://github.com/t4t5/sweetalert" target="_blank" rel="noopener">sweetalert</a>: 一个非常美观的用于替换浏览器默认 alert 的库</li>
+<li><a href="https://github.com/web-animations/web-animations-js" target="_blank" rel="noopener">web-animations-js</a>: Javascript 实现的 Web Animation API</li>
+<li><a href="https://github.com/maxwellito/vivus" target="_blank" rel="noopener">vivus</a>: 可以动态描绘 SVG 的 JS 库, 支持多种动画</li>
+<li><a href="https://github.com/Selz/plyr" target="_blank" rel="noopener">plyr</a>: 轻量, 小巧, 美观的 HTML5 视频播放器</li>
+<li><a href="https://github.com/sbstjn/timesheet.js" target="_blank" rel="noopener">timesheet.js</a>: 基于 HTML5 &amp; CSS3 时间表</li>
+<li><a href="https://github.com/Mango/slideout" target="_blank" rel="noopener">slideout</a>: 一个非常美观的侧滑菜单</li>
+</ul>
+<h1 id="包管理工具-Package-Managers"><a href="#包管理工具-Package-Managers" class="headerlink" title="包管理工具 Package Managers"></a>包管理工具 Package Managers</h1><h2 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h2><ul>
+<li>菜鸟教程NPM 使用介绍 <a href="http://www.runoob.com/nodejs/nodejs-npm.html" target="_blank" rel="noopener">NPM 使用介绍 | 菜鸟教程</a></li>
+<li>淘宝 NPM 镜像 <a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝 NPM 镜像</a></li>
+<li>npm 模块安装机制简介 <a href="http://www.ruanyifeng.com/blog/2016/01/npm-install.html" target="_blank" rel="noopener">npm 模块安装机制简介 - 阮一峰的网络日志</a></li>
+<li><p>npm包搜索地址 <a href="https://www.npmjs.com" target="_blank" rel="noopener">npm</a></p>
+<h2 id="Bower"><a href="#Bower" class="headerlink" title="Bower"></a>Bower</h2></li>
+<li><p>Bower中文网 <a href="http://www.bowercn.com" target="_blank" rel="noopener">Bower</a></p>
+</li>
+<li><p>Bower：客户端库管理工具-阮一峰 <a href="http://javascript.ruanyifeng.com/tool/bower.html" target="_blank" rel="noopener">JavaScript 标准参考教程（alpha）</a></p>
+<h2 id="Yarn"><a href="#Yarn" class="headerlink" title="Yarn"></a>Yarn</h2></li>
+<li><p>yarn中文网 <a href="https://yarnpkg.com/zh-Hans" target="_blank" rel="noopener">https://yarnpkg.com/zh-Hans/快速、可靠、安全的依赖管理</a></p>
+</li>
+<li>YARN 简介 <a href="https://www.ibm.com/developerworks/cn/data/library/bd-yarn-intro" target="_blank" rel="noopener">YARN 简介</a>[]<h1 id="编辑器-Text-Editors"><a href="#编辑器-Text-Editors" class="headerlink" title="编辑器 Text Editors"></a>编辑器 Text Editors</h1></li>
+</ul>
+<h2 id="WebStorm"><a href="#WebStorm" class="headerlink" title="WebStorm"></a>WebStorm</h2><ul>
+<li>官网下载 <a href="http://www.jetbrains.com/webstorm/" target="_blank" rel="noopener">Download WebStorm: The Smartest JavaScript IDE</a></li>
+<li><p>前端网破解版下载 前端工具库 - 前端网（QDFuns）</p>
+<h2 id="VScode"><a href="#VScode" class="headerlink" title="VScode"></a>VScode</h2></li>
+<li><p>官网下载 <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code - Code Editing. Redefined</a></p>
+</li>
+<li><p>vscode 插件精选 - <a href="https://segmentfault.com/a/1190000006697219" target="_blank" rel="noopener">献给所有前端工程师vscode 插件推荐 - 献给所有前端工程师（更新与2017.3.6）</a></p>
+<h2 id="SublimeText"><a href="#SublimeText" class="headerlink" title="SublimeText"></a>SublimeText</h2></li>
+<li><p>官网下载 <a href="https://www.sublimetext.com/" target="_blank" rel="noopener">The text editor you’ll fall in love with</a></p>
+</li>
+<li>前端网破解版插件版下载 前端工具库 - 前端网（QDFuns）</li>
+<li>SublimeCodeIntel: Sublime Text 的代码补全工具，支持多种语言</li>
+<li>Emmet：一个用于提高开发效率的编辑器插件，前身是Zen coding</li>
+<li>SublimeLinter: 一个提供代码质量检测的插件</li>
+<li>SublimeTmpl：快速新建指定的模版文件</li>
+<li>Syntax-highlighting-for-Sass：sass代码高亮插件</li>
+<li>MarkdownEditing: Sublime Text 强大的 Markdown 扩展, 提供快捷键, 主题等</li>
+<li>ApplySyntax: 辅助检测语法插件</li>
+<li>CTags: Sublime Text Ctags 支持插件, 需要安装 ctags</li>
+<li>sublime-react: React 代码高亮</li>
+</ul>
+<h2 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h2><ul>
+<li><p>官网下载 <a href="https://atom.io" target="_blank" rel="noopener">A hackable text editor for the 21st Century</a></p>
+<h2 id="HBuilder"><a href="#HBuilder" class="headerlink" title="HBuilder"></a>HBuilder</h2></li>
+<li><p>官网下载 <a href="http://www.dcloud.io" target="_blank" rel="noopener">DCloud - HBuilder、5+、mui、流应用、HTML5专家</a></p>
+<h1 id="JS框架-JS-Frameworks"><a href="#JS框架-JS-Frameworks" class="headerlink" title="JS框架 JS Frameworks"></a>JS框架 JS Frameworks</h1></li>
+</ul>
+<h2 id="Backbone"><a href="#Backbone" class="headerlink" title="Backbone"></a>Backbone</h2><ul>
+<li><p>Backbone.js API中文文档<a href="http://www.css88.com/doc/backbone" target="_blank" rel="noopener">Backbone.js API中文文档</a></p>
+<h2 id="AngularJs"><a href="#AngularJs" class="headerlink" title="AngularJs"></a>AngularJs</h2></li>
+<li><p>中文官方文档<a href="https://angular.cn" target="_blank" rel="noopener">Angular</a></p>
+</li>
+<li>(angularjs中文网<a href="http://www.apjs.net" target="_blank" rel="noopener">AngularJS中文网</a></li>
+<li>(angularjs教程<a href="http://www.angularjs.net.cn" target="_blank" rel="noopener">AngularJS中文网</a></li>
+<li>(Angular 基础入门<a href="http://www.cnblogs.com/micua/p/angular-essential.html" target="_blank" rel="noopener">Angular 基础入门</a></li>
+<li>(angular-masonry: Masonry 的 AngularJS 插件，用于瀑布流</li>
+<li>angular-schema-form: 根据 JSON 生成响应的 Form 表单</li>
+<li>restangular: Angular 中用来处理 RESTful API 的插件，可替代 $resource</li>
+<li>ng-cordova: Cordova 常用组件的 Angular 版本</li>
+<li>angular-translate: Angular 的国际化 (I18n)</li>
+<li>ng-inspector: Chrome 插件，用于调试 Angular</li>
+<li>angularjs-style-guide: AngularJS 代码风格</li>
+<li>ngReact: React 的 Angular 插件，可以在 Angular 中使用 React Components</li>
+<li>material: Google Material Design 效果的 Angular 实现</li>
+<li>angular-local-storage: Angular 插件, 提供了对 localStorage 的友好支持,并对不支持的浏览器使用 cookie 优雅降级</li>
+<li>angular-filter: 一组有用的 Angular Filters</li>
+<li>bindonce: Angular 插件, 用于减少 Watcher 的数量, 提升性能</li>
+</ul>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><ul>
+<li>英文官方文档<a href="https://facebook.github.io/react/docs/hello-world.html" target="_blank" rel="noopener">Hello World - React</a></li>
+<li>中文官方文档<a href="http://reactjs.cn/react/docs/getting-started-zh-CN.html" target="_blank" rel="noopener">入门教程 | React</a></li>
+<li>gitbooks手册<a href="https://hulufei.gitbooks.io/react-tutorial/content/introduction.html" target="_blank" rel="noopener">React 概览 | React 入门教程</a></li>
+<li>react入门<a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="noopener">React 入门实例教程</a></li>
+<li>React Router入门<a href="http://www.ruanyifeng.com/blog/2016/05/react_router.html" target="_blank" rel="noopener">React Router 使用教程</a></li>
+<li><a href="https://react-guide.github.io/react-router-cn" target="_blank" rel="noopener">React Router 中文文档</a></li>
+<li><a href="http://cn.redux.js.org/docs/react-redux/index.html" target="_blank" rel="noopener">react-redux 中文文档</a></li>
+<li><a href="https://github.com/facebook/react" target="_blank" rel="noopener">react</a>: React 框架源代码</li>
+<li><a href="https://github.com/facebook/react-native" target="_blank" rel="noopener">react-native</a>: Facebook 出品的使用 React 开发 IOS 原生应用的框架</li>
+<li><a href="https://github.com/gaearon/react-hot-loader" target="_blank" rel="noopener">react-hot-loader</a>: 实时调整 React 组件效果</li>
+<li><a href="https://github.com/ericclemmons/grunt-react" target="_blank" rel="noopener">grunt-react</a>: React 的 Grunt 组件, 用于将 JSX 编译成 JS</li>
+<li><a href="https://github.com/touchstonejs/touchstonejs" target="_blank" rel="noopener">touchstonejs</a>: 基于 React 的手机应用前端框架</li>
+<li><a href="https://github.com/pheuter/essential-react" target="_blank" rel="noopener">essential-react</a>: 基于 React, ES6, React-Router的一个应用脚手架</li>
+<li><a href="https://github.com/ReactTraining/react-router" target="_blank" rel="noopener">react-router</a>: React 路由解决方案</li>
+</ul>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><ul>
+<li>vue官方<a href="http://cn.vuejs.org" target="_blank" rel="noopener">vue.js</a></li>
+<li>vuex官方<a href="http://vuex.vuejs.org/zh-cn" target="_blank" rel="noopener">Introduction · GitBook</a></li>
+<li>vue-router官方<a href="https://router.vuejs.org/zh-cn" target="_blank" rel="noopener">Introduction · GitBook</a></li>
+</ul>
+<h1 id="UI框架-UI-Frameworks"><a href="#UI框架-UI-Frameworks" class="headerlink" title="UI框架 UI Frameworks"></a>UI框架 UI Frameworks</h1><h2 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h2><ul>
+<li>最受欢迎的 HTML、CSS 和 JS 框架 <a href="http://v3.bootcss.com" target="_blank" rel="noopener">Bootstrap 中文文档 · Bootstrap 是世界上最流行的、移动设备优先的、响应式前端开发框架。</a></li>
+</ul>
+<h2 id="Ionic"><a href="#Ionic" class="headerlink" title="Ionic"></a>Ionic</h2><ul>
+<li>一款接近原生的Html5移动App开发框架　<a href="http://www.ionic.wang" target="_blank" rel="noopener">会html css js就可以开发app</a></li>
+</ul>
+<h2 id="Foundation"><a href="#Foundation" class="headerlink" title="Foundation"></a>Foundation</h2><ul>
+<li>Foundation 中文网 迄今为止最好的响应式前端框架<a href="http://www.foundcss.com" target="_blank" rel="noopener">Foundation中文网 | 方便更多热爱Foundation中文网框架的攻城师们分享、交流自己在前端设计、开发方面的心得。</a></li>
+</ul>
+<h2 id="FrozenUI"><a href="#FrozenUI" class="headerlink" title="FrozenUI"></a>FrozenUI</h2><ul>
+<li>移动端服务的前端框架<a href="frozenui.github.io">FrozenUI - 专注于移动web的UI框架</a></li>
+</ul>
+<h2 id="materializecss"><a href="#materializecss" class="headerlink" title="materializecss"></a>materializecss</h2><ul>
+<li><a href="http://www.materializecss.cn" target="_blank" rel="noopener">基于(Material Design的主流前端响应式框架手册 - Materialize</a></li>
+</ul>
+<h2 id="mui"><a href="#mui" class="headerlink" title="mui"></a>mui</h2><ul>
+<li>最接近原生APP体验的高性能前端框架<a href="http://dev.dcloud.net.cn/mui" target="_blank" rel="noopener">MUI-最接近原生APP体验的高性能前端框架</a></li>
+</ul>
+<h2 id="AntDesign"><a href="#AntDesign" class="headerlink" title="AntDesign"></a>AntDesign</h2><ul>
+<li>和react配合的UI框架<a href="https://ant.design/index-cn" target="_blank" rel="noopener">A UI Design Language</a></li>
+</ul>
+<h2 id="eleme"><a href="#eleme" class="headerlink" title="eleme"></a>eleme</h2><ul>
+<li>和vue配合的UI框架<a href="http://element.eleme.io" target="_blank" rel="noopener">Element</a></li>
+</ul>
+<h1 id="JS预处理-JS-Preprocessors"><a href="#JS预处理-JS-Preprocessors" class="headerlink" title="JS预处理 JS Preprocessors"></a>JS预处理 JS Preprocessors</h1><h2 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h2><ul>
+<li>TypeScript中文网<a href="https://www.tslang.cn" target="_blank" rel="noopener">TypeScript中文网 · TypeScript–JavaScript的超集</a></li>
+</ul>
+<h2 id="CoffeeScript"><a href="#CoffeeScript" class="headerlink" title="CoffeeScript"></a>CoffeeScript</h2><ul>
+<li>CoffeeScript 中文<a href="http://coffee-script.org" target="_blank" rel="noopener">CoffeeScript 中文</a></li>
+<li>CoffeeScript 实用手册 极客学院<a href="http://wiki.jikexueyuan.com/project/coffeescript" target="_blank" rel="noopener">CoffeeScript 教程_极客学院 Wiki</a></li>
+</ul>
+<h1 id="过程自动化-Process-Automation"><a href="#过程自动化-Process-Automation" class="headerlink" title="过程自动化 Process Automation"></a>过程自动化 Process Automation</h1><h2 id="Grunt"><a href="#Grunt" class="headerlink" title="Grunt"></a>Grunt</h2><ul>
+<li>Grunt中文网<a href="http://www.gruntjs.net" target="_blank" rel="noopener">JavaScript世界的构建工具 – Grunt中文网</a></li>
+</ul>
+<h2 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h2><ul>
+<li>gulp.js 中文网<a href="http://www.gulpjs.com.cn" target="_blank" rel="noopener">基于流的自动化构建工具。 | gulp.js 中文网</a></li>
+<li>gulp详细入门教程一点 | <a href="http://www.ydcss.com" target="_blank" rel="noopener">gulp详细入门教程</a><br>前端构建工具gulpjs的使用介绍及技巧<a href="http://www.cnblogs.com/2050/p/4198792.html" target="_blank" rel="noopener">前端构建工具gulpjs的使用介绍及技巧</a></li>
+<li>Gulp开发教程<a href="https://www.w3ctech.com/topic/134" target="_blank" rel="noopener">Gulp开发教程（翻译） - w3ctech - 中国最大的前端技术社区</a></li>
+</ul>
+<h1 id="模板引擎-Templating"><a href="#模板引擎-Templating" class="headerlink" title="模板引擎 Templating"></a>模板引擎 Templating</h1><h2 id="Handlebars"><a href="#Handlebars" class="headerlink" title="Handlebars"></a>Handlebars</h2><ul>
+<li>handlebarsjs官网<a href="http://handlebarsjs.com" target="_blank" rel="noopener">Minimal Templating on Steroids</a></li>
+<li>Handlebars.js 中文文档<a href="http://keenwon.com/992.html" target="_blank" rel="noopener">Handlebars.js 中文文档</a></li>
+<li>Handlebars的使用方法文档整理<a href="http://www.tuicool.com/articles/fqQFN3" target="_blank" rel="noopener">Handlebars的使用方法文档整理(Handlebars.js) - 推酷</a></li>
+</ul>
+<h2 id="Haml"><a href="#Haml" class="headerlink" title="Haml"></a>Haml</h2><ul>
+<li>haml官方文档<a href="https://github.com/haml/haml" target="_blank" rel="noopener">haml/haml</a></li>
+<li>haml入门<a href="http://blog.csdn.net/napoay/article/details/50491363" target="_blank" rel="noopener">haml入门</a></li>
+</ul>
+<h2 id="Jade"><a href="#Jade" class="headerlink" title="Jade"></a>Jade</h2><ul>
+<li>Jade 官方的英文文档<a href="https://pugjs.org" target="_blank" rel="noopener">Jade的使用_jade 教程_w3cplus</a></li>
+<li>Jade的使用<a href="http://www.w3cplus.com/html/how-to-use-jade.html" target="_blank" rel="noopener">Jade的使用_jade 教程_w3cplus</a></li>
+<li>带你学习Jade模板引擎视频<a href="http://www.imooc.com/learn/259" target="_blank" rel="noopener">带你学习Jade模板引擎-慕课网</a></li>
+</ul>
+<h1 id="构建工具-Build-Tools"><a href="#构建工具-Build-Tools" class="headerlink" title="构建工具 Build Tools"></a>构建工具 Build Tools</h1><h2 id="RequireJS"><a href="#RequireJS" class="headerlink" title="RequireJS"></a>RequireJS</h2><ul>
+<li>RequireJS [英文(网<a href="http://requirejs.org" target="_blank" rel="noopener">RequireJS</a></li>
+<li>RequireJS 中文网<a href="http://requirejs.cn" target="_blank" rel="noopener">RequireJS 中文网</a></li>
+</ul>
+<h2 id="seajs"><a href="#seajs" class="headerlink" title="seajs"></a>seajs</h2><ul>
+<li>seajs文档<a href="http://seajs.org/docs" target="_blank" rel="noopener">A Module Loader for the Web</a></li>
+<li>SeaJS从入门到原理<a href="http://www.tuicool.com/articles/FfEJv2u" target="_blank" rel="noopener">SeaJS从入门到原理 - 推酷</a></li>
+</ul>
+<h2 id="Browserify"><a href="#Browserify" class="headerlink" title="Browserify"></a>Browserify</h2><ul>
+<li>官网<a href="http://browserify.org" target="_blank" rel="noopener">Browserify</a></li>
+<li>github <a href="https://github.com/substack/node-browserify/" target="_blank" rel="noopener">node-browserify</a></li>
+</ul>
+<h2 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h2><ul>
+<li>Webpack <a href="http://webpackdoc.com" target="_blank" rel="noopener">中文指南介紹 | Webpack 中文指南</a></li>
+<li>一小时包教会 —— webpack <a href="http://www.w2bc.com/Article/50764" target="_blank" rel="noopener">入门指南一小时包教会 – webpack 入门指南</a></li>
+</ul>
+<h1 id="CSS预处理器-CSS-Preprocessors"><a href="#CSS预处理器-CSS-Preprocessors" class="headerlink" title="CSS预处理器 CSS Preprocessors"></a>CSS预处理器 CSS Preprocessors</h1><h2 id="Sass"><a href="#Sass" class="headerlink" title="Sass"></a>Sass</h2><ul>
+<li>sass入门<a href="http://www.w3cplus.com/sassguide" target="_blank" rel="noopener">sass入门 - sass教程</a></li>
+<li>sass参考手册<a href="http://sass.bootcss.com/docs/sass-reference" target="_blank" rel="noopener">Sass 参考手册 | Sass 中文文档</a></li>
+<li>SASS用法指南-阮一峰<a href="http://www.ruanyifeng.com/blog" target="_blank" rel="noopener">阮一峰的网络日志</a></li>
+</ul>
+<h2 id="Less"><a href="#Less" class="headerlink" title="Less"></a>Less</h2><ul>
+<li>less中文网<a href="http://lesscss.cn" target="_blank" rel="noopener">Less 中文网</a></li>
+<li>less快速入门[快速入门 | Less.js 中文文档]<a href="http://less.bootcss.com" target="_blank" rel="noopener">http://less.bootcss.com</a>)</li>
+</ul>
+<h2 id="stylus"><a href="#stylus" class="headerlink" title="stylus"></a>stylus</h2><ul>
+<li>stylus中文文档-<a href="http://www.zhangxinxu.com/jq/stylus/" target="_blank" rel="noopener">stylus中文文档</a></li>
+</ul>
+<h1 id="核心基础"><a href="#核心基础" class="headerlink" title="核心基础"></a>核心基础</h1><h2 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h2><ul>
+<li>W3C <a href="http://www.w3school.com.cn/html5" target="_blank" rel="noopener">HTML 5 教程</a></li>
+<li>W3C <a href="https://www.w3.org/html/ig/zh/wiki/HTML5" target="_blank" rel="noopener">HTML5 Chinese Interest Group Wiki</a></li>
+<li>菜鸟教程 <a href="http://www.runoob.com/html/html5-intro.html" target="_blank" rel="noopener">HTML5 教程 | 菜鸟教程</a></li>
+<li>HTML5中文门户 <a href="http://www.html5cn.org" target="_blank" rel="noopener">HTML5中国：中国最大的HTML5中文门户 - Powered by Discuz!</a></li>
+</ul>
+<h2 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h2><ul>
+<li>W3C CSS教程 <a href="http://www.w3school.com.cn/css/index.asp" target="_blank" rel="noopener">CSS 教程</a></li>
+<li>W3C CSS3教程 <a href="http://www.w3school.com.cn/css3/index.asp" target="_blank" rel="noopener">CSS3 教程</a></li>
+<li>菜鸟教程CSS教程 <a href="http://www.runoob.com/css/css-tutorial.html" target="_blank" rel="noopener">CSS 教程 | 菜鸟教程</a></li>
+<li>菜鸟教程CSS3教程 <a href="http://www.runoob.com/css3/css3-tutorial.html" target="_blank" rel="noopener">CSS3 教程 | 菜鸟教程</a></li>
+<li>CSS参考手册 <a href="http://css.doyoe.com/" target="_blank" rel="noopener">CSS参考手册_web前端开发参考手册系列</a></li>
+</ul>
+<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><ul>
+<li>W3C <a href="http://www.w3school.com.cn/js/" target="_blank" rel="noopener">JavaScript 教程</a></li>
+<li>菜鸟教程 <a href="http://www.runoob.com/js/js-tutorial.html" target="_blank" rel="noopener">JavaScript 教程 | 菜鸟教程</a></li>
+<li>廖雪峰js教程 <a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="noopener">Home - 廖雪峰的官方网站</a></li>
+<li>js标准参考教程-阮一峰<a href="http://javascript.ruanyifeng.com" target="_blank" rel="noopener">JavaScript 标准参考教程（alpha）</a></li>
+</ul>
+<h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><ul>
+<li>W3C <a href="http://www.w3school.com.cn/jquery" target="_blank" rel="noopener">jQuery 教程</a></li>
+<li>菜鸟教程 <a href="http://www.runoob.com/jquery/jquery-tutorial.html" target="_blank" rel="noopener">jQuery 教程 | 菜鸟教程</a></li>
+<li>极客学院 <a href="http://wiki.jikexueyuan.com/project/jquery-tutorial" target="_blank" rel="noopener">jQuery教程_jQuery开发中文手册[PDF]下载-极客学院Wiki</a></li>
+<li>廖雪峰 <a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499993118b8173572625b4afe93a8b19dd707ea1d000" target="_blank" rel="noopener">http://www.liaoxuefeng.com/wiki/</a></li>
+<li>参考手册 <a href="http://www.css88.com/jqapi-1.9" target="_blank" rel="noopener">jQuery API 中文文档(适用jQuery 1.0 - jQuery 3.1)</a></li>
+<li>参考手册 <a href="http://www.runoob.com/manual/jquery/" target="_blank" rel="noopener">jquery 在线手册</a></li>
+</ul>
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><ul>
+<li>阮一峰ES6 <a href="http://es6.ruanyifeng.com" target="_blank" rel="noopener">ECMAScript 6入门</a></li>
+<li>极客学院 <a href="http://wiki.jikexueyuan.com/project/es6" target="_blank" rel="noopener">ECMAScript 6 入门-极客学院Wiki</a></li>
+<li>JavaScript 标准参考　阮一峰<a href="http://javascript.ruanyifeng.com/advanced/ecmascript6.html" target="_blank" rel="noopener">JavaScript 标准参考教程（alpha）</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2017/03/06/前端技术栈/" data-id="ck5w3elkv000asw7k8lfc2un1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-DDD领域驱动设计" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/20/DDD领域驱动设计/" class="article-date">
+  <time datetime="2017-02-20T13:30:34.000Z" itemprop="datePublished">2017-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/20/DDD领域驱动设计/">DDD领域驱动设计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>DDD的全称为Domain-driven Design，即领域驱动设计。</p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h2 id="Domain-领域"><a href="#Domain-领域" class="headerlink" title="Domain-领域"></a>Domain-领域</h2><p>任何一个系统都会属于某个特定的领域。比如论坛是一个领域，只要你想做一个论坛，那这个论坛的核心业务是确定的，比如都有用户发帖、回帖等核心基本功能。比如电商平台、普通电商系统，这种都属于网上电商领域，只要是这个领域的系统，那都有商品浏览、购物车、下单、减库存、付款交易等核心环节。所以，同一个领域的系统都具有相同的核心业务，因为他们要解决的问题的本质是类似的。</p>
+<p>所以，只要我们确定了系统所属的领域，那这个系统的核心业务，即要解决的关键问题、问题的范围边界就基本确定了。通常我们说，要成为一个领域的专家，必须要在这个领域深入研究很多年才行。因为只有你研究了很多年，你才会遇到非常多的该领域的问题，同时你解决这个领域中的问题的经验也非常丰富。很多时候，领域专家比技术专家更加吃香，比如金融领域的专家。</p>
+<h2 id="Design-设计"><a href="#Design-设计" class="headerlink" title="Design-设计"></a>Design-设计</h2><p>DDD中的设计主要指领域模型的设计。为什么是领域模型的设计而不是架构设计或其他的什么设计呢？因为DDD是一种基于模型驱动开发的软件开发思想，强调领域模型是整个系统的核心，领域模型也是整个系统的核心价值所在。每一个领域，都有一个对应的领域模型，领域模型能够很好的帮我们解决复杂的业务问题。</p>
+<p>从领域和代码实现的角度来理解，领域模型绑定了领域和代码实现，确保了最终的代码实现就一定是解决了领域中的核心问题的。因为：1）领域驱动领域模型设计；2）领域模型驱动代码实现。我们只要保证领域模型的设计是正确的，就能确定领域模型可以解决领域中的核心问题；同理，我们只要保证代码实现是严格按照领域模型的意图来落地的，那就能保证最后出来的代码能够解决领域的核心问题的。这个思路，和传统的分析、设计、编码这几个阶段被割裂（并且每个阶段的产物也不同）的软件开发方法学形成鲜明的对比。</p>
+<h2 id="Driven-驱动"><a href="#Driven-驱动" class="headerlink" title="Driven-驱动"></a>Driven-驱动</h2><p>上面其实已经提到了，就是：1）领域驱动领域模型设计；2）领域模型驱动代码实现。这个就和我们传统的数据库驱动开发的思路形成对比了。DDD中，我们总是以领域为边界，分析领域中的核心问题（核心关注点），然后设计对应的领域模型，再通过领域模型驱动代码实现。而像数据库设计、持久化技术等这些都不是DDD的核心，而是外围的东西。</p>
+<p>领域驱动设计（DDD）告诉我们的最大价值我觉得是：当我们要开发一个系统时，应该尽量先把领域模型想清楚，然后再开始动手编码，这样的系统后期才会很好维护。但是，很多项目（尤其是互联网项目，为了赶工）都是一开始模型没想清楚，一上来就开始建表写代码，代码写的非常冗余，完全是过程是的思考方式，最后导致系统非常难以维护。而且更糟糕的是，出来混总是要还的，前期的领域模型设计的不好，不够抽象，如果你的系统会长期需要维护和适应业务变化，那后面你一定会遇到各种问题维护上的困难，比如数据结构设计不合理，代码到处冗余，改BUG到处引入新的BUG，新人对这种代码上手困难，等。而那时如果你再想重构模型，那要付出的代价会比一开始重新开发还要大，因为你还要考虑兼容历史的数据，数据迁移，如何平滑发布等各种头疼的问题。所以，就导致我们最后天天加班。</p>
+<p>事实上，编程习惯很难改变，从面向过程式的想到哪里写到哪里的思想转变为基于系统化的模型驱动的思维并不是一件容易的事情。</p>
+<h2 id="概念总结"><a href="#概念总结" class="headerlink" title="概念总结"></a>概念总结</h2><ol>
+<li>领域就是问题域，有边界，领域中有很多问题；</li>
+<li>任何一个系统要解决的那个大问题都对应一个领域；</li>
+<li>通过建立领域模型来解决领域中的核心问题，模型驱动的思想；</li>
+<li>领域建模的目标针对我们在领域中所关心的问题，即只针对核心关注点，而不是整个领域中的所有问题；</li>
+<li>领域模型在设计时应考虑一定的抽象性、通用性，以及复用价值；</li>
+<li>通过领域模型驱动代码的实现，确保代码让领域模型落地，代码最终能解决问题；</li>
+<li>领域模型是系统的核心，是领域内的业务的直接沉淀，具有非常大的业务价值；</li>
+<li>技术架构设计或数据存储等是在领域模型的外围，帮助领域模型进行落地；</li>
+</ol>
+<h1 id="理解、拆分、细化领域"><a href="#理解、拆分、细化领域" class="headerlink" title="理解、拆分、细化领域"></a>理解、拆分、细化领域</h1><h2 id="理解领域"><a href="#理解领域" class="headerlink" title="理解领域"></a>理解领域</h2><p>在拿到初步的系统开发需求时，往往还无法开始进行真正的的需求分析和模型设计工作，我们还必须将我们的问题进行拆分，需求进行细化。有些时候，需求方，即提出问题的人，很可能自己不清楚具体想要什么。他只知道一个概念，一个大的目标。比如他只知道要做一个社交软件、电商网站等。但是他不清楚这些系统应该具体做成什么样子。这个时候，只有领域专家(指对该领域内的各种业务场景和各种业务规则都非常清楚的人)能够正确的表达出系统该做成什么样子，所以，要知道一个系统到底该做成什么样子，到底哪些是核心业务关注点，只能靠沉淀领域内的各种知识，别无他法。因此，假设你现在打算做一个电商平台，但是你对这个领域没什么了解，那你一定得先去了解下该领域内主流的电商平台，比如淘宝、天猫、京东、亚马逊等。这个了解的过程就是你沉淀领域知识的过程。如果你不了解，就算你领域建模的能力再强，各种技术架构能力再强也是使不上力。领域专家不是某个固定的角色，而是某一类人，这类人对这个领域非常了解。比如，一个开发人员也可以是一个领域专家。假设你在一个公司开发和维护一个系统已经好几年了，但是这个系统的产品经理（PD）可能已经换过好几任了，这种情况下，我们有理由相信这几任产品经理都没有比你更熟悉这个领域。</p>
+<h2 id="拆分领域"><a href="#拆分领域" class="headerlink" title="拆分领域"></a>拆分领域</h2><p>领域建模的基础是要先理解领域，让自己成为领域专家。如果做到了这点，我们就打好了坚实的基础了。但是，有时一个领域往往太复杂，涉及到的领域概念、业务规则、交互流程太多，导致我们没办法直接针对这个大的领域进行领域建模。所以，我们需要将领域进行拆分，本质上就是把大问题拆分为小问题，然后各个击破的思路。然后既然把一个大的领域划分为了多个小的领域（子域），那最关键的就是要理清每个子域的边界；然后要搞清楚哪些子域是核心子域，哪些是非核心子域，哪些是公共支撑子域；然后，还要思考子域之间的联系是什么。那么，我们该如何划分子域呢？我的个人看法是从业务相关性的角度去思考，也就是我们平时说的按业务功能为出发点进行划分。还是拿经典的电商系统来分析，通常一个电商系统都会包含好几个大块，比如：</p>
+<ul>
+<li>会员中心：负责用户账号登录、用户信息的管理；</li>
+<li>商品中心：负责商品的展示、导航、维护；</li>
+<li>订单中心：负责订单的生成和生命周期管理；</li>
+<li>交易中心：负责交易相关的业务；</li>
+<li>库存中心：负责维护商品的库存；</li>
+<li>促销中心：负责各种促销活动的支持；</li>
+</ul>
+<p>上面这些中心看起来很自然，因为大家对电子商务的这个领域都已经非常熟悉了，所以都没什么疑问，好像很自然的样子。所以，领域划分是不是就是没什么挑战了呢？显然不是。之所以我们觉得子域划分很简单，是因为我们对整个大领域非常了解了。如果我们遇到一个冷门的领域，就没办法这么容易的去划分子域了。这就需要我们先去努力理解领域内的知识。所以，子域划分没有任何技巧可言，因为这个工作没有所谓的诀窍。当我们不了解一个东西的时候，如何去拆解它？当我们对整个领域有一定的熟悉了，了解了领域内的相关业务的本质和关系，我们就自然而然的能划分出合理的子域了。不过并不是所有的系统都需要划分子域的，有些系统只是解决一个小问题，这个问题不复杂，可能只有一两个核心概念。所以，这种系统完全不需要再划分子域。但不是绝对的，当一个领域，我们的关注点越来越多，每个关注点我们关注的信息越来越多的时候，我们会不由自主的去进一步的划分子域。比如，也许我们一开始将商品和商品的库存都放在商品中心里，但是后来由于库存的维护越来越复杂，导致揉在一起对我们的系统维护带来一定的困难时，我们就会考虑将两者进行拆分，这个就是所谓的业务垂直分割。</p>
+<h2 id="细化子域"><a href="#细化子域" class="headerlink" title="细化子域"></a>细化子域</h2><p>仅仅领域进行子域划分是远远不够的，凭这些我们还无法进行后续的领域模型设计。我们还必须再进一步细化每个子域，进一步明确每个子域的核心关注点，即需求细化。需要细化的方面有以下几点：</p>
+<ol>
+<li>梳理领域概念：梳理出领域内我们关注的概念、概念的关系，并统一交流词汇，形成统一语言；</li>
+<li>梳理业务规则：梳理出领域内我们关注的各种业务规则，DDD中叫不变性（invariants），比如唯一性规则，余额不能小于零等；</li>
+<li>梳理业务场景：梳理出领域内的核心业务场景，比如电商平台中的加入购物车、提交订单、发起付款等核心业务场景；</li>
+<li>梳理业务流程：梳理出领域内的关键业务流程，比如订单处理流程，退款流程等；<br>从上面这4个方面进行整理工作，这是一个非常具有创造性和有难度的工作。这个工作一方面会主观的定义我们想要什么；另一方面，也需要思考该需求的合理性。细化子域是一个合格的产品经理应有的职责，把产品充分设计好，从各个方面去考虑，如何设计一个产品，才能更好的解决用户的核心诉求，即领域内的核心问题。这需要对领域有足够的了解。</li>
+</ol>
+<p>关于领域概念的梳理，推荐采用四色原型分析法，这个分析法通过系统的方法，将概念划分为不同的种类，为不同种类的概念标注不同的颜色。然后将这些概念有机的组合起来，从而让人们可以清晰的分析出概念和概念之间的关系。</p>
+<p>细化子域工作强调梳理功能，不强调如何实现功能。</p>
+<h1 id="领域模型设计"><a href="#领域模型设计" class="headerlink" title="领域模型设计"></a>领域模型设计</h1><h2 id="领域建模的方法"><a href="#领域建模的方法" class="headerlink" title="领域建模的方法"></a>领域建模的方法</h2><ol>
+<li>划分好边界上下文，通常每个子域（sub domain）对应一个边界上下文（bounded context），同一个边界上下文中的概念是明确的，没有任何歧义；</li>
+<li>在每个边界上下文中设计领域模型，具体的领域模型设计方法有很多种，如以场景为出发点的四色原型分析法，这个步骤最核心的就是找出聚合根，并找出每个聚合根包含的信息；</li>
+<li>画出领域模型图，圈出每个模型中的聚合边界；</li>
+<li>设计领域模型时，要考虑该领域模型是否满足业务规则，同时还要综合考虑技术实现等问题，比如并发问题；领域模型不是概念模型，概念模型不关注技术实现，领域模型关心；所以领域模型才能直接指导编码实现；</li>
+<li>思考领域模型是如何在业务场景中发挥作用的，以及是如何参与到业务流程的每个环节的；</li>
+<li>场景走查，确认领域模型是否能满足领域中的业务场景和业务流程；</li>
+<li>模型持续重构、完善、精炼；</li>
+</ol>
+<h2 id="领域模型的核心作用"><a href="#领域模型的核心作用" class="headerlink" title="领域模型的核心作用"></a>领域模型的核心作用</h2><ol>
+<li>抽象了领域内的核心概念，并建立概念之间的关系；</li>
+<li>领域模型承担了领域内的状态的维护；</li>
+<li>领域模型维护了领域内的数据之间的业务规则，数据一致性；</li>
+</ol>
+<h2 id="领域模型设计只是软件设计中的一小部分"><a href="#领域模型设计只是软件设计中的一小部分" class="headerlink" title="领域模型设计只是软件设计中的一小部分"></a>领域模型设计只是软件设计中的一小部分</h2><p>领域模型设计只是整个软件设计中的很小一部分。除了领域模型设计之外，要落地一个系统，还有非常多的其他设计要做:</p>
+<ul>
+<li>容量规划</li>
+<li>架构设计</li>
+<li>数据库设计</li>
+<li>缓存设计</li>
+<li>框架选型</li>
+<li>发布方案</li>
+<li>数据迁移、同步方案</li>
+<li>分库分表方案</li>
+<li>回滚方案</li>
+<li>高并发解决方案</li>
+<li>一致性选型</li>
+<li>性能压测方案</li>
+<li>监控报警方案</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2017/02/20/DDD领域驱动设计/" data-id="ck5w3eljb0000sw7kz16fjo7g" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-web前端工程化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/28/web前端工程化/" class="article-date">
+  <time datetime="2016-12-28T12:21:31.000Z" itemprop="datePublished">2016-12-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/28/web前端工程化/">web前端工程化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在web业务日益复杂和多元化的今天，“意大利面条式”的jQuery程序已显得重负不堪，不论是繁杂的DOM操作，亦或是AJAX的“回调地狱”等问题都预示着jQuery和AJAX等“传统”的前端技术注定无法保证项目的可维护性和开发质量。</p>
+<p>现代化的前端架构提出了前端工程化这一概念，主要涉及到了模块化、组件化、规范化、自动化四个方面。</p>
+<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><p>简单来说，模块化就是将一个大文件拆分成相互依赖的小文件，再进行统一的拼装和加载。模块化的概念为多人协作开发提供了可能性。</p>
+<h3 id="JS的模块化"><a href="#JS的模块化" class="headerlink" title="JS的模块化"></a>JS的模块化</h3><p>在ES6之前，JavaScript一直没有模块系统，这对开发大型复杂的前端工程造成了巨大的障碍。对此社区制定了一些模块加载方案，如CommonJS、AMD和CMD等，某些框架也会有自己模块系统，比如Angular1.x。</p>
+<p>现在ES6已经在语言层面上规定了模块系统，完全可以取代现有的CommonJS和AMD规范，而且使用起来相当简洁，并且有静态加载的特性。规范确定了，然后就是模块的打包和加载问题：</p>
+<ol>
+<li>用Webpack+Babel将所有模块打包成一个文件同步加载；</li>
+<li>用SystemJS+Babel分模块异步加载；</li>
+<li>将两者结合在一起。</li>
+</ol>
+<h3 id="CSS的模块化"><a href="#CSS的模块化" class="headerlink" title="CSS的模块化"></a>CSS的模块化</h3><p>虽然SASS、LESS、Stylus等预处理器实现了CSS的文件拆分，但没有解决CSS模块化的一个重要问题：选择器的全局污染问题。</p>
+<p>按道理，一个模块化的文件应该要隐藏内部作用域，只暴露少量接口给使用者。而按照目前预处理器的方式，导入一个CSS模块后，已存在的样式有被覆盖的风险。虽然重写样式是CSS的一个优势，但这并不利于多人协作。</p>
+<p>为了避免全局选择器的冲突，可以采用CSS Modules解决方案：</p>
+<ul>
+<li>CSS Modules通过JS来管理依赖。它能够最大化地结合CSS生态和JS模块化能力，Vue的scoped style就属于这一种。</li>
+</ul>
+<h2 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h2><p>组件化和模块化并不是同一个概念。</p>
+<p>模块化只是在语言层面上，对代码的拆分；而组件化是基于模块化，在设计层面上，对UI（用户界面）的拆分。</p>
+<p>从UI拆分下来的每个包含模板(HTML)+样式(CSS)+逻辑(JS)功能完备的结构单元，我们称之为组件。</p>
+<p>其实，组件化更重要的是一种分治思想。</p>
+<blockquote>
+<p>Keep Simple. Everything can be a component.</p>
+</blockquote>
+<p>简单的说，页面上所有的东西都是组件。页面是个大型组件，可以拆成若干个中型组件，然后中型组件还可以再拆，拆成若干个小型组件，小型组件也可以再拆，直到拆成DOM元素为止。DOM元素可以看成是浏览器自身的组件，作为组件的基本单元。</p>
+<p>传统前端框架/类库的思想是先组织DOM，然后把某些可复用的逻辑封装成组件来操作DOM，是DOM优先；而组件化框架/类库的思想是先来构思组件，然后用DOM这种基本单元结合相应逻辑来实现组件，是组件优先。这是两者本质的区别。</p>
+<p>其次，组件化实际上是一种按照模板(HTML)+样式(CSS)+逻辑(JS)三位一体的形式对面向对象的进一步抽象。</p>
+<p>所以我们除了封装组件本身，还要合理处理组件之间的关系，比如（逻辑）继承、（样式）扩展、（模板）嵌套和包含等，这些关系都可以归为依赖。</p>
+<p>经典的客户端框架都是基于组件化思想的，如WinForm、WPF、Android等，它们从诞生的那天起就是组件化的。而前端领域发展曲折，是从展示页面为主的WebPage模式走过来的，近两年才从客户端框架经验中引入了组件化思想。许多前端工程化的问题都可以从客户端那里寻求解决方案。</p>
+<p>目前市面上的组件化框架很多，主要的有Vue2、React、Angular2等。</p>
+<h2 id="规范化"><a href="#规范化" class="headerlink" title="规范化"></a>规范化</h2><p>模块化和组件化确定了开发模型，而这些东西的实现就需要规范去落实。</p>
+<p>规范化其实是工程化中很重要的一个部分，项目初期规范制定的好坏会直接影响到后期的开发质量。</p>
+<p>主要涉及到如下内容：</p>
+<ul>
+<li>目录结构的制定</li>
+<li>编码规范</li>
+<li>前后端接口规范</li>
+<li>文档规范</li>
+<li>组件管理</li>
+<li>Git分支管理</li>
+<li>Commit描述规范</li>
+<li>定期CodeReview</li>
+<li>视觉图标规范</li>
+</ul>
+<p>编码规范可以采取<a href="http://eslint.cn/" target="_blank" rel="noopener">ESLint</a>和<a href="https://github.com/stylelint/stylelint" target="_blank" rel="noopener">StyleLint</a>等强制措施，例如Lint通不过不能提交代码等。</p>
+<p>前后端接口管理可以了解一下网易的<a href="https://nei.netease.com/" target="_blank" rel="noopener">NEI - 接口管理平台</a>。</p>
+<h2 id="自动化"><a href="#自动化" class="headerlink" title="自动化"></a>自动化</h2><blockquote>
+<p>任何简单机械的重复劳动都应该让机器去完成。</p>
+</blockquote>
+<p>前端工程化的很多脏活累活都应该交给自动化工具来完成。</p>
+<h3 id="图标合并"><a href="#图标合并" class="headerlink" title="图标合并"></a>图标合并</h3><ul>
+<li>不要再用PS拼雪碧图了，有Gulp+SpriteSmith；</li>
+<li>不要再用Icomoon了，这仍然是半自动的，有FontCustom。</li>
+</ul>
+<h3 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a>自动化测试</h3><p>前端自动化测试能够提高代码质量、减少人肉测试等，这些优点是不言而喻的。市面上前端测试框架有很多，选择哪个都不会有太大问题，例如：Karma + Mocha + Chai</p>
+<h3 id="构建工具"><a href="#构建工具" class="headerlink" title="构建工具"></a>构建工具</h3><p>最后就是你的团队可能不只一个项目，如果每个项目都搭一套gulp+webpack+babel+…，维护成本比较高，而且不能保证统一性。</p>
+<p>因此基于Gulp实现一套独立于项目的构建工具是最好的解决方案。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>持续集成，性能优化，项目部属等问题有待进一步分析。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2016/12/28/web前端工程化/" data-id="ck5w3elku0008sw7k85itgpql" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-大型网站技术架构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/10/大型网站技术架构/" class="article-date">
+  <time datetime="2016-09-10T13:41:30.000Z" itemprop="datePublished">2016-09-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/10/大型网站技术架构/">大型网站技术架构</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-初始阶段的网站架构"><a href="#1-初始阶段的网站架构" class="headerlink" title="1.初始阶段的网站架构"></a>1.初始阶段的网站架构</h2><p>一般来讲，大型网站都是从小型网站发展而来，一开始的架构都比较简单，随着业务复杂和用户量的激增，才开始做很多架构上的改进。当它还是小型网站的时候，没有太多访客，一般来讲只需要一台服务器就够了，这时应用程序、数据库、文件等所有资源都在一台服务器上，网站架构如下图所示：</p>
+<p><img src="/img/大型网站技术架构/junior_architecture.png" alt="初级网站架构"></p>
+<h2 id="2-应用服务和数据服务分离"><a href="#2-应用服务和数据服务分离" class="headerlink" title="2.应用服务和数据服务分离"></a>2.应用服务和数据服务分离</h2><p>随着网站业务的发展和用户量的增加，一台服务器就无法再满足需求了。大量用户访问导致访问速度越来越慢，而逐渐增加的数据也会导致存储空间不足。这时就需要将应用和数据分离，应用和数据分离后整个网站使用3台服务器：应用服务器、文件服务器和数据库服务器。这3台服务器对硬件资源的要求各不相同：</p>
+<ul>
+<li>应用服务器业务逻辑，需要强大的CPU</li>
+<li>数据库服务器对磁盘读写操作很多，需要更快的磁盘和更大的内存</li>
+<li>文件服务器存储用户上传的文件，因此需要更大的磁盘空间</li>
+</ul>
+<p>此时，网站系统的架构如下图所示：</p>
+<p><img src="/img/大型网站技术架构/application_data_separation.png" alt="应用服务与数据服务分离"></p>
+<h2 id="3-使用缓存改善网站性能"><a href="#3-使用缓存改善网站性能" class="headerlink" title="3.使用缓存改善网站性能"></a>3.使用缓存改善网站性能</h2><p>随着用户再增加，网站又会一次面临挑战：数据库压力太大导致整站访问效率再此下降，用户体验受到影响。一个网站，往往 80% 的业务访问集中在 20% 的数据上，比如微博请求量最多的肯定是那些千万级粉丝的大 V 的微博，而几乎没有人关注的你的首页，除了自己想起来之外根本不会被打开。既然大部分业务访问集中在一小部分数据上，那就把这一小部分数据先提前缓存在内存中，而不是每次都去数据库读取，这样就可以减少数据库的访问压力，从而提高整个网站的访问速度。</p>
+<p>网站使用的缓存一般分为缓存到应用服务器或者缓存在专门的分布式缓存服务器。缓存到应用服务器自己的访问速度快很多，但是受自身内存限制，往往不太适用。远程分布式缓存使用一个集群专门负责缓存服务，当内存不够还可以轻松得动态扩容。</p>
+<p><img src="/img/大型网站技术架构/cache.png" alt="缓存"></p>
+<h2 id="4-使用应用服务器集群改善网站的并发处理能力"><a href="#4-使用应用服务器集群改善网站的并发处理能力" class="headerlink" title="4.使用应用服务器集群改善网站的并发处理能力"></a>4.使用应用服务器集群改善网站的并发处理能力</h2><p>使用缓存后，数据访问压力得到了缓解，但是单一应用服务器能够处理的请求连接有限，在网站访问高峰期，应用服务器就成了整个网站的效率瓶颈。使用分布式集群是网站解决高并发、海量数据问题的常用手段。当一台服务器的处理能力和存储空间不足时，不要尝试去更换更强大的服务器，对大型网站而言，多么强大的服务器，都满足不了网站持续增长的业务需求。这种情况下，更恰当的做法是增加一台服务器分担原有服务器的访问及存储压力。 对网站架构而言，只要能通过增加一台服务器的方式改善负载压力，就可以以同样的方式持续增加服务器不断改善系统性能，从而实现系统的可伸缩性。</p>
+<p>应用服务器实现集群是网站可伸缩架构设计中较为简单成熟的一种，如下图所示：</p>
+<p><img src="/img/大型网站技术架构/cluster.png" alt="集群"></p>
+<p>通过负载均衡调度服务器，可以将来自用户浏览器的访问请求分发到应用服务器集群中的任何一台服务器上，如果有更多用户，就在集群中加入更多的应用服务器，使应用服务器的压力不再成为整个网站的瓶颈。</p>
+<h2 id="5-数据库读写分离"><a href="#5-数据库读写分离" class="headerlink" title="5.数据库读写分离"></a>5.数据库读写分离</h2><p>网站在使用缓存后，使对大部分数据读操作访问都可以不通过数据库就能完成，但是仍有一部分读操作（缓存访问不命中、缓存过期）和全部的写操作都需要访问数据库，在网站的用户达到一定规模后，数据库因为负载压力过高而成为网站的瓶颈。 目前大部分的主流数据库都提供主从热备功能，通过配置两台数据库主从关系，可以将一台数据库服务器的数据更新同步到另一台服务器上。网站利用数据库的这一功能，实现数据库读写分离，从而改善数据库负载压力。如下图所示：</p>
+<p><img src="/img/大型网站技术架构/read_write_separation.png" alt="数据库读写分离"></p>
+<p>应用服务器在写数据的时候，访问主数据库，主数据库通过主从复制机制将数据更新同步到从数据库，这样当应用服务器读数据的时候，就可以通过从数据库获得数据。为了便于应用程序访问读写分离后的数据库，通常在应用服务器端使用专门的数据访问模块，使数据库读写分离对应用透明。</p>
+<h2 id="6-使用反向代理和-CDN-加速网站响应"><a href="#6-使用反向代理和-CDN-加速网站响应" class="headerlink" title="6.使用反向代理和 CDN 加速网站响应"></a>6.使用反向代理和 CDN 加速网站响应</h2><p>随着网站业务不断发展，用户规模越来越大，由于中国复杂的网络环境，不同地区的用户访问网站时，速度差别也极大。有研究表明，网站访问延迟和用户流失率正相关，网站访问越慢，用户越容易失去耐心而离开。为了提供更好的用户体验，留住用户，网站需要加速网站访问速度。主要手段有使用 CDN 和反向代理。如下图所示：</p>
+<p><img src="/img/大型网站技术架构/cdn_reverseProxy.png" alt="CDN反向代理"></p>
+<h2 id="7-使用分布式文件系统和分布式数据库系统"><a href="#7-使用分布式文件系统和分布式数据库系统" class="headerlink" title="7.使用分布式文件系统和分布式数据库系统"></a>7.使用分布式文件系统和分布式数据库系统</h2><p>任何强大的单一服务器都满足不了大型网站持续增长的业务需求。数据库经过读写分离后，从一台服务器拆分成两台服务器，但是随着网站业务的发展依然不能满足需求，这时需要使用分布式数据库。文件系统也一样，需要使用分布式文件系统。如下图所示：</p>
+<p><img src="/img/大型网站技术架构/distributed_data_file_system.png" alt="分布式文件系统/数据库系统"></p>
+<p>分布式数据库是网站数据库拆分的最后手段，只有在单表数据规模非常庞大的时候才使用。不到不得已时，网站更常用的数据库拆分手段是业务分库，将不同业务的数据部署在不同的物理服务器上。</p>
+<h2 id="8-使用-NoSQL-和搜索引擎"><a href="#8-使用-NoSQL-和搜索引擎" class="headerlink" title="8.使用 NoSQL 和搜索引擎"></a>8.使用 NoSQL 和搜索引擎</h2><p>随着网站业务越来越复杂，对数据存储和检索的需求也越来越复杂，网站需要采用一些非关系数据库技术如 NoSQL 和非数据库查询技术如搜索引擎。如下图所示：</p>
+<p><img src="/img/大型网站技术架构/nosql_searchEngine.png" alt="NoSQL及搜索引擎"></p>
+<p>NoSQL 和搜索引擎都是源自互联网的技术手段，对可伸缩的分布式特性具有更好的支持。应用服务器则通过一个统一数据访问模块访问各种数据，减轻应用程序管理诸多数据源的麻烦。</p>
+<h2 id="9-业务拆分"><a href="#9-业务拆分" class="headerlink" title="9.业务拆分"></a>9.业务拆分</h2><p>大型网站为了应对日益复杂的业务场景，通过使用分而治之的手段将整个网站业务分成不同的产品线。如大型购物交易网站都会将首页、商铺、订单、买家、卖家等拆分成不同的产品线，分归不同的业务团队负责。</p>
+<p>具体到技术上，也会根据产品线划分，将一个网站拆分成许多不同的应用，每个应用独立部署。应用之间可以通过一个超链接建立关系（在首页上的导航链接每个都指向不同的应用地址），也可以通过消息队列进行数据分发，当然最多的还是通过访问同一个数据存储系统来构成一个关联的完整系统，如下图所示：</p>
+<p><img src="/img/大型网站技术架构/business_split.png" alt="业务拆分"></p>
+<h2 id="10-分布式服务"><a href="#10-分布式服务" class="headerlink" title="10.分布式服务"></a>10.分布式服务</h2><p>随着业务拆分越来越小，存储系统越来越庞大，应用系统的整体复杂度呈指数级增加，部署维护越来越困难。由于所有应用要和所有数据库系统连接，在数万台服务器规模的网站中，这些连接的数目是服务器规模的平方，导致数据库连接资源不足，拒绝服务。</p>
+<p>既然每一个应用系统都需要执行许多相同的业务操作，比如用户管理、商品管理等，那么可以将这些共用的业务提取出来，独立部署。由这些可复用的业务连接数据库，提供共用业务服务，而应用系统只需要管理用户界面，通过分布式服务调用共用业务服务完成具体业务操作。如下图所示：</p>
+<p><img src="/img/大型网站技术架构/distributed_service.png" alt="分布式服务"></p>
+<p>大型网站的架构演化到这里，基本上大多数的技术问题都可以得以解决了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2016/09/10/大型网站技术架构/" data-id="ck5w3elkv0009sw7kelshhsxi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">十二月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">十月 2011</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/27/golang/go开发环境搭建/">go开发环境搭建(vscode)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/Dapper/">轻量级ORM框架Dapper</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/20/ABP、SaaS与多租户/">ABP、SaaS与多租户</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/持续集成与jenkins/">持续集成与jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/ABP框架/">ABP框架</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Nero<br>
+      Powered by <a href="https://wangyunjiegit.github.io/" target="_blank">Nero</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

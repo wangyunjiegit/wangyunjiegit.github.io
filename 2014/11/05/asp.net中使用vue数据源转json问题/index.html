@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>asp.net中使用vue数据源转json问题 | NeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="开发过程中使用到了vue框架进行前端批量数据的处理，将批量数据转换为json格式进行ajax传参时需要注意将vue数据源得到的json结果进行如下处理，webservice接收json数据时无法有效的识别双引号。 12345678910111213141516171819//错误的json格式//error_json:&amp;apos;[&amp;#123; &amp;quot;Module_id&amp;quot;: &amp;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="asp.net中使用vue数据源转json问题">
+<meta property="og:url" content="http://wangyunjiegit.github.io/2014/11/05/asp.net中使用vue数据源转json问题/index.html">
+<meta property="og:site_name" content="NeroBlog">
+<meta property="og:description" content="开发过程中使用到了vue框架进行前端批量数据的处理，将批量数据转换为json格式进行ajax传参时需要注意将vue数据源得到的json结果进行如下处理，webservice接收json数据时无法有效的识别双引号。 12345678910111213141516171819//错误的json格式//error_json:&amp;apos;[&amp;#123; &amp;quot;Module_id&amp;quot;: &amp;qu">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-03-14T04:16:37.651Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="asp.net中使用vue数据源转json问题">
+<meta name="twitter:description" content="开发过程中使用到了vue框架进行前端批量数据的处理，将批量数据转换为json格式进行ajax传参时需要注意将vue数据源得到的json结果进行如下处理，webservice接收json数据时无法有效的识别双引号。 12345678910111213141516171819//错误的json格式//error_json:&amp;apos;[&amp;#123; &amp;quot;Module_id&amp;quot;: &amp;qu">
+  
+    <link rel="alternate" href="/atom.xml" title="NeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">If you can&#39;t explain it simply, you don&#39;t understand it well enough.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangyunjiegit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-asp.net中使用vue数据源转json问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/05/asp.net中使用vue数据源转json问题/" class="article-date">
+  <time datetime="2014-11-05T13:10:31.000Z" itemprop="datePublished">2014-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      asp.net中使用vue数据源转json问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>开发过程中使用到了vue框架进行前端批量数据的处理，将批量数据转换为json格式进行ajax传参时需要注意将vue数据源得到的json结果进行如下处理，webservice接收json数据时无法有效的识别双引号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//错误的json格式</span><br><span class="line">//error_json:&apos;[&#123; &quot;Module_id&quot;: &quot;&quot;, &quot;Project_id&quot;: &quot;&quot;, &quot;Feature_type&quot;: &quot;&quot;, &quot;Feature_name&quot;: &quot;&quot;, &quot;Calc_type&quot;: &quot;&quot;, &quot;Alarm_type&quot;: &quot;&quot;, &quot;Alarm_channel&quot;: &quot;&quot;, &quot;Int_param1&quot;: &quot;&quot;, &quot;Int_param2&quot;: &quot;&quot;, &quot;Owner&quot;: [], &quot;Follower&quot;: [] &#125;]&apos;</span><br><span class="line">var feature_group_json = JSON.stringify(this.featureGroup);</span><br><span class="line"></span><br><span class="line">//正确的json格式</span><br><span class="line">//success_json:&apos;&#123;&quot;featureGroupJson&quot;:&quot;[&#123; \&apos;Module_id\&apos;: \&apos;\&apos;, \&apos;Project_id\&apos;: \&apos;\&apos;, \&apos;Feature_type\&apos;: \&apos;\&apos;, \&apos;Feature_name\&apos;: \&apos;\&apos;, \&apos;Calc_type\&apos;: \&apos;\&apos;, \&apos;Alarm_type\&apos;: \&apos;\&apos;, \&apos;Alarm_channel\&apos;: \&apos;\&apos;, \&apos;Int_param1\&apos;: \&apos;\&apos;, \&apos;Int_param2\&apos;: \&apos;\&apos;, \&apos;Owner\&apos;: [], \&apos;Follower\&apos;: [] &#125;]&quot;&#125;&apos;</span><br><span class="line">feature_group_json = JSON.stringify(this.featureGroup).replace(/\&quot;/g, &quot;\\&apos;&quot;); </span><br><span class="line"></span><br><span class="line">//ajax请求webservice</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">　　type: &apos;POST&apos;,</span><br><span class="line">　　contentType: &apos;application/json;charset=utf-8&apos;,</span><br><span class="line">　　url: &apos;your_url&apos;,</span><br><span class="line">　　data: &apos;&#123;&quot;featureGroupJson&quot;:&quot;&apos; + feature_group_json + &apos;&quot;&#125;&apos;,</span><br><span class="line">　　dataType: &apos;json&apos;,</span><br><span class="line">　　success: function (data) &#123;</span><br><span class="line">　　　　alert(&quot;success&quot;);</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2014/11/05/asp.net中使用vue数据源转json问题/" data-id="ck5w3elju0006sw7k6uj7wwwu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/01/分布式系统理论入门/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          分布式系统理论入门
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/01/06/设计安全的账号系统/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">设计安全的账号系统</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">十二月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">十月 2011</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/27/golang/go开发环境搭建/">go开发环境搭建(vscode)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/Dapper/">轻量级ORM框架Dapper</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/20/ABP、SaaS与多租户/">ABP、SaaS与多租户</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/持续集成与jenkins/">持续集成与jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/ABP框架/">ABP框架</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Nero<br>
+      Powered by <a href="https://wangyunjiegit.github.io/" target="_blank">Nero</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

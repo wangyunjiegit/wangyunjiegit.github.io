@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Web前端性能监控系统 | NeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前端性能会直接影响到用户体验，加载的延迟、操作的卡顿等都会影响用户的使用体验。尤其是移动端，用户对页面响应延迟和连接中断的容忍度很低。尽管性能很重要，开发迭代过程中难免会有所忽视，性能会伴随产品的迭代而有所衰减，事实上并没有简单的几条黄金规则就可以搞定性能优化工作，我们需要一套性能监控系统持续监控、评估、预警页面性能状况、发现瓶颈，指导优化工作的进行。  If you cannot measure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web前端性能监控系统">
+<meta property="og:url" content="http://wangyunjiegit.github.io/2015/11/28/Web 前端性能监控系统/index.html">
+<meta property="og:site_name" content="NeroBlog">
+<meta property="og:description" content="前端性能会直接影响到用户体验，加载的延迟、操作的卡顿等都会影响用户的使用体验。尤其是移动端，用户对页面响应延迟和连接中断的容忍度很低。尽管性能很重要，开发迭代过程中难免会有所忽视，性能会伴随产品的迭代而有所衰减，事实上并没有简单的几条黄金规则就可以搞定性能优化工作，我们需要一套性能监控系统持续监控、评估、预警页面性能状况、发现瓶颈，指导优化工作的进行。  If you cannot measure">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/index.png">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/dimension.png">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/Threshold1.png">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/Threshold2.png">
+<meta property="og:updated_time" content="2017-03-14T15:36:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web前端性能监控系统">
+<meta name="twitter:description" content="前端性能会直接影响到用户体验，加载的延迟、操作的卡顿等都会影响用户的使用体验。尤其是移动端，用户对页面响应延迟和连接中断的容忍度很低。尽管性能很重要，开发迭代过程中难免会有所忽视，性能会伴随产品的迭代而有所衰减，事实上并没有简单的几条黄金规则就可以搞定性能优化工作，我们需要一套性能监控系统持续监控、评估、预警页面性能状况、发现瓶颈，指导优化工作的进行。  If you cannot measure">
+<meta name="twitter:image" content="http://wangyunjiegit.github.io/img/index.png">
+  
+    <link rel="alternate" href="/atom.xml" title="NeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">If you can&#39;t explain it simply, you don&#39;t understand it well enough.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangyunjiegit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Web 前端性能监控系统" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/28/Web 前端性能监控系统/" class="article-date">
+  <time datetime="2015-11-28T13:21:31.000Z" itemprop="datePublished">2015-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Web前端性能监控系统
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前端性能会直接<strong>影响到用户体验</strong>，加载的延迟、操作的卡顿等都会影响用户的使用体验。尤其是移动端，用户对页面响应延迟和连接中断的容忍度很低。尽管性能很重要，开发迭代过程中难免会有所忽视，<strong>性能会伴随产品的迭代而有所衰减</strong>，事实上并没有简单的几条黄金规则就可以搞定性能优化工作，我们需要一套性能监控系统持续监控、评估、预警页面性能状况、发现瓶颈，指导优化工作的进行。</p>
+<blockquote>
+<p>If you cannot measure it, you cannot improve it.</p>
+</blockquote>
+<h1 id="维度与指标"><a href="#维度与指标" class="headerlink" title="维度与指标"></a>维度与指标</h1><ol>
+<li>前端性能指标无非是这几个值：</li>
+</ol>
+<ul>
+<li>白屏时间；</li>
+<li>首屏时间；</li>
+<li>用户可交互时间；</li>
+<li>总下载时间；</li>
+<li>DNS解析时间；</li>
+<li>TCP连接时间；</li>
+<li>HTTP请求时间；</li>
+<li>HTTP响应时间；</li>
+</ul>
+<p><img src="/img/index.png" alt="指标"></p>
+<ol start="2">
+<li>关于维度：如果有心思去做IP分析，将「运营商」、「网络」、「URL」作为维度，实际每个指标都可以做出分布图 (图中数据经过处理，非真实数据)；</li>
+</ol>
+<p><img src="/img/dimension.png" alt="维度"></p>
+<h1 id="阈值："><a href="#阈值：" class="headerlink" title="阈值："></a>阈值：</h1><ol>
+<li>每个业务形态都不尽相同，不可能有统一的阈值，特别是配置短信/邮件报警的时候。</li>
+<li>当用户网络差异大的时候(特别是移动端)，平均数其实没什么用，也就看个概况，中位数也同理。比较好的方式还是做堆叠图，方便看分布。</li>
+<li>同比环比，报警功能，当然也是需要的。</li>
+</ol>
+<p><img src="/img/Threshold1.png" alt="阈值"></p>
+<p><img src="/img/Threshold2.png" alt="阈值"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2015/11/28/Web 前端性能监控系统/" data-id="ck5w3eljt0005sw7kjxupf1bp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/24/dotnet平台常用框架/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          .Net平台常用框架
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/01/分布式系统理论入门/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">分布式系统理论入门</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">十二月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">十月 2011</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/27/golang/go开发环境搭建/">go开发环境搭建(vscode)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/Dapper/">轻量级ORM框架Dapper</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/20/ABP、SaaS与多租户/">ABP、SaaS与多租户</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/持续集成与jenkins/">持续集成与jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/ABP框架/">ABP框架</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Nero<br>
+      Powered by <a href="https://wangyunjiegit.github.io/" target="_blank">Nero</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

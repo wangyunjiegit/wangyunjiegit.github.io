@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>轻量级ORM框架Dapper | NeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基本介绍Dapper作为一款高性能、轻量级的ORM框架，目前支撑了国外知名网站stackoverflow的数据访问层，其知名度非常高。在众多ORM中，堪称性能之王。作为一款微型 ORM，很受国内开发者的欢迎，毕竟经过大网站 stackoverflow 的考验。很多自主开发的 ORM 做性能测试，都会选择 Dapper 作为比较对象。 Dapper的优势 轻量。只有一个文件(SqlMapper.cs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="轻量级ORM框架Dapper">
+<meta property="og:url" content="http://wangyunjiegit.github.io/2017/03/28/test/Test/index.html">
+<meta property="og:site_name" content="NeroBlog">
+<meta property="og:description" content="基本介绍Dapper作为一款高性能、轻量级的ORM框架，目前支撑了国外知名网站stackoverflow的数据访问层，其知名度非常高。在众多ORM中，堪称性能之王。作为一款微型 ORM，很受国内开发者的欢迎，毕竟经过大网站 stackoverflow 的考验。很多自主开发的 ORM 做性能测试，都会选择 Dapper 作为比较对象。 Dapper的优势 轻量。只有一个文件(SqlMapper.cs">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-26T15:34:10.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="轻量级ORM框架Dapper">
+<meta name="twitter:description" content="基本介绍Dapper作为一款高性能、轻量级的ORM框架，目前支撑了国外知名网站stackoverflow的数据访问层，其知名度非常高。在众多ORM中，堪称性能之王。作为一款微型 ORM，很受国内开发者的欢迎，毕竟经过大网站 stackoverflow 的考验。很多自主开发的 ORM 做性能测试，都会选择 Dapper 作为比较对象。 Dapper的优势 轻量。只有一个文件(SqlMapper.cs">
+  
+    <link rel="alternate" href="/atom.xml" title="NeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">If you can&#39;t explain it simply, you don&#39;t understand it well enough.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangyunjiegit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-test/Test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/test/Test/" class="article-date">
+  <time datetime="2017-03-28T07:10:31.000Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      轻量级ORM框架Dapper
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h1><p>Dapper作为一款高性能、轻量级的ORM框架，目前支撑了国外知名网站stackoverflow的数据访问层，其知名度非常高。在众多ORM中，堪称性能之王。作为一款微型 ORM，很受国内开发者的欢迎，毕竟经过大网站 stackoverflow 的考验。很多自主开发的 ORM 做性能测试，都会选择 Dapper 作为比较对象。</p>
+<h1 id="Dapper的优势"><a href="#Dapper的优势" class="headerlink" title="Dapper的优势"></a>Dapper的优势</h1><ul>
+<li>轻量。只有一个文件(SqlMapper.cs)</li>
+<li>速度快。Dapper的速度接近与IDataReader，取列表的数据超过了DataTable。</li>
+<li>支持多种数据库。支持多数据库的本质是因为Dapper是对IDBConnection接口进行了方法扩展，而如SqlConnection,MysqlConnection,OracleConnection等都是继承于DBConnection，而DBConnection又是实现了IDBConnection的接口。所以Dapper能够在所有Ado.net Providers下工作，包括sqlite, sqlce, firebird, oracle, MySQL, PostgreSQL and SQL Server。</li>
+<li>可以映射一对一，一对多，多对多等多种关系。</li>
+<li>性能高。通过Emit反射IDataReader的序列队列，来快速的得到和产生对象，性能不错。</li>
+<li>兼容性好。支持.NetFrameWork2.0之后所有版本</li>
+</ul>
+<h1 id="Dapper原理"><a href="#Dapper原理" class="headerlink" title="Dapper原理"></a>Dapper原理</h1><p>Dapper是一个简单的ORM，专门从SQL查询结果中快速生成对象。Dapper支持执行sql查询并将其结果映射到强类型列表或动态对象列表。Dapper缓存每个查询的信息。这种全面的缓存有助于从大约两倍于LINQ到SQL的查询生成对象。当前缓存由两个ConcurrentDictionary对象处理，它们从不被清除。</p>
+<p>Dapper通过扩展方法将两个映射函数添加到IDbConnection接口，这两个函数都命名为ExecuteMapperQuery。第一个映射结果是一个强类型列表，而第二个映射结果是一个动态对象列表。ExecuteMapperCommand执行并且不返回结果集。所有三个方法都将参数接受为匿名类，其中属性值映射到同名的SQL参数。</p>
+<p>Dapper旨在仅处理结果集到对象映射。它不处理对象之间的关系，它不会自动生成任何类型的SQL查询。</p>
+<ul>
+<li>Query()方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Query&lt;T&gt;(this IDbConnection cnn, string sql, object param = null, </span><br><span class="line">         IDbTransaction transaction = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null)</span><br></pre></td></tr></table></figure>
+<p>Query()方法表示执行查询，返回按T输入的数据。该方法是Query()方法的泛型方法，有7个参数，第一个参数为IDbConnection扩展类，表示对IDbConnection接口进行扩展，该方法使用了可选参数，提高方法的扩展性。在Query方法的实现中，有一个CommandDefinition类，用来表示sql操作的关键方面。在该类下有一个GetInit()方法。</p>
+<ul>
+<li>GetInit()方法<br>Dapper通过Emit反射IDataReader的序列队列，来快速的得到和产生对象。GetInit()方法是一个静态方法，该方法的“Type commandType”参数表示连接关联的Command对象，返回一个Action<idbcommand>委托。</idbcommand></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (SqlMapper.Link&lt;Type, Action&lt;IDbCommand&gt;&gt;.TryGet(commandInitCache, commandType, out action))&#123; return action; &#125;</span><br></pre></td></tr></table></figure>
+<p> Link&lt;TKey, TValue&gt;是一个泛型分部类，这是一个微缓存，查看是否存在一个Action<idbcommand>的委托。</idbcommand></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> var bindByName = GetBasicPropertySetter(commandType, &quot;BindByName&quot;, typeof(bool));</span><br><span class="line">var initialLongFetchSize = GetBasicPropertySetter(commandType, &quot;InitialLONGFetchSize&quot;, typeof(int));</span><br></pre></td></tr></table></figure>
+<p> 以上两个操作主要获取BindByName和InitialLONGFetchSize的获取基本属性设置。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">if (bindByName != null || initialLongFetchSize != null)</span><br><span class="line">           &#123;</span><br><span class="line">               var method = new DynamicMethod(commandType.Name + &quot;_init&quot;, null, new Type[] &#123; typeof(IDbCommand) &#125;);</span><br><span class="line">               var il = method.GetILGenerator();</span><br><span class="line">               if (bindByName != null)</span><br><span class="line">               &#123;</span><br><span class="line">                   il.Emit(OpCodes.Ldarg_0);</span><br><span class="line">                   il.Emit(OpCodes.Castclass, commandType);</span><br><span class="line">                   il.Emit(OpCodes.Ldc_I4_1);</span><br><span class="line">                   il.EmitCall(OpCodes.Callvirt, bindByName, null);</span><br><span class="line">               &#125;</span><br><span class="line">               if (initialLongFetchSize != null)</span><br><span class="line">               &#123;</span><br><span class="line">                   il.Emit(OpCodes.Ldarg_0);</span><br><span class="line">                   il.Emit(OpCodes.Castclass, commandType);</span><br><span class="line">                   il.Emit(OpCodes.Ldc_I4_M1);</span><br><span class="line">                   il.EmitCall(OpCodes.Callvirt, initialLongFetchSize, null);</span><br><span class="line">               &#125;</span><br><span class="line">               il.Emit(OpCodes.Ret);</span><br><span class="line">               action = (Action&lt;IDbCommand&gt;)method.CreateDelegate(typeof(Action&lt;IDbCommand&gt;));</span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure>
+<p> 这一步是该操作的核心部分，利用Emit反射操作。根据上一步获取的对应名称的基本属性设置，采用DynamicMethod对象，定义和表示一个可以编译，执行和丢弃的动态方法。丢弃的方法可用于垃圾回收。调用该对象的GetILGenerator方法，返回方法的Microsoft中间语言（MSIL）生成器，默认的MSIL流大小为64字节。判断基本属性设置不为空后，调用ILGenerator类的Emit方法，Emit()将指定的指令放在指令流上，该方法接收一个IL流。EmitCall()将 call 或 callvirt 指令置于 Microsoft 中间语言 (MSIL) 流，以调用varargs 方法。我们看到OpCodes类，该类描述中间语言 (IL) 指令。CreateDelegate()完成动态方法并创建一个可用于执行它的委托。</p>
+<p> 通过以上的反射操作构建好对象后，就会接着执行对应的数据库操作。</p>
+<ul>
+<li><p>QueryImpl()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">private static IEnumerable&lt;T&gt; QueryImpl&lt;T&gt;(this IDbConnection cnn, CommandDefinition command, Type effectiveType)</span><br><span class="line">      &#123;</span><br><span class="line">          object param = command.Parameters;</span><br><span class="line">          var identity = new Identity(command.CommandText, command.CommandType, cnn, effectiveType, param == null ? null : param.GetType(), null);</span><br><span class="line">          var info = GetCacheInfo(identity, param, command.AddToCache);</span><br><span class="line">          IDbCommand cmd = null;</span><br><span class="line">          IDataReader reader = null;</span><br><span class="line">          bool wasClosed = cnn.State == ConnectionState.Closed;</span><br><span class="line">          try</span><br><span class="line">          &#123;</span><br><span class="line">              cmd = command.SetupCommand(cnn, info.ParamReader);</span><br><span class="line">              if (wasClosed) cnn.Open();</span><br><span class="line">              reader = cmd.ExecuteReader(wasClosed ? CommandBehavior.CloseConnection | CommandBehavior.SequentialAccess : CommandBehavior.SequentialAccess);</span><br><span class="line">              wasClosed = false; </span><br><span class="line">              var tuple = info.Deserializer;</span><br><span class="line">              int hash = GetColumnHash(reader);</span><br><span class="line">              if (tuple.Func == null || tuple.Hash != hash)</span><br><span class="line">              &#123;</span><br><span class="line">                  if (reader.FieldCount == 0) </span><br><span class="line">                      yield break;</span><br><span class="line">                  tuple = info.Deserializer = new DeserializerState(hash, GetDeserializer(effectiveType, reader, 0, -1, false));</span><br><span class="line">                  if (command.AddToCache) SetQueryCache(identity, info);</span><br><span class="line">              &#125;</span><br><span class="line">              var func = tuple.Func;</span><br><span class="line">              var convertToType = Nullable.GetUnderlyingType(effectiveType) ?? effectiveType;</span><br><span class="line">              while (reader.Read())</span><br><span class="line">              &#123;</span><br><span class="line">                  object val = func(reader);</span><br><span class="line">                  if (val == null || val is T)</span><br><span class="line">                  &#123;</span><br><span class="line">                      yield return (T)val;</span><br><span class="line">                  &#125;</span><br><span class="line">                  else</span><br><span class="line">                  &#123;</span><br><span class="line">                      yield return (T)Convert.ChangeType(val, convertToType, CultureInfo.InvariantCulture);</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;</span><br><span class="line">              while (reader.NextResult()) &#123; &#125;</span><br><span class="line">              reader.Dispose();</span><br><span class="line">              reader = null;</span><br><span class="line">              command.OnCompleted();</span><br><span class="line">          &#125;</span><br><span class="line">          finally</span><br><span class="line">          &#123;</span><br><span class="line">              if (reader != null)</span><br><span class="line">              &#123;</span><br><span class="line">                  if (!reader.IsClosed) try &#123; cmd.Cancel(); &#125;</span><br><span class="line">                      catch &#123; /* don&apos;t spoil the existing exception */ &#125;</span><br><span class="line">                  reader.Dispose();</span><br><span class="line">              &#125;</span><br><span class="line">              if (wasClosed) cnn.Close();</span><br><span class="line">              if (cmd != null) cmd.Dispose();</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p>该方法为执行查询操作的核心方法，通过CommandDefinition类的相关操作后，获取到相应的对象后，执行这一步操作。该方法是IDbConnection的扩展方法，CommandDefinition表示sql的相关操作对象，Type表示传入的一个有效的类型。Identity对象表示Dapper中的缓存查询的标识，该类是一个分部类，可以对其进行相应的扩展。GetCacheInfo()获取缓存信息。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2017/03/28/test/Test/" data-id="ck5v7ycia000jqk7kcd8se8si" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/28/Dapper/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">轻量级ORM框架Dapper</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">十二月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">十月 2011</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/28/test/Test/">轻量级ORM框架Dapper</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/Dapper/">轻量级ORM框架Dapper</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/20/ABP、SaaS与多租户/">ABP、SaaS与多租户</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/持续集成与jenkins/">持续集成与jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/ABP框架/">ABP框架</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Nero<br>
+      Powered by <a href="https://wangyunjiegit.github.io/" target="_blank">Nero</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

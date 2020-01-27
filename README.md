@@ -1,2 +1,0 @@
-# wangyunjiegit.github.io
-blog

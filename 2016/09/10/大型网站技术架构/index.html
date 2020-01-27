@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>大型网站技术架构 | NeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.初始阶段的网站架构一般来讲，大型网站都是从小型网站发展而来，一开始的架构都比较简单，随着业务复杂和用户量的激增，才开始做很多架构上的改进。当它还是小型网站的时候，没有太多访客，一般来讲只需要一台服务器就够了，这时应用程序、数据库、文件等所有资源都在一台服务器上，网站架构如下图所示：  2.应用服务和数据服务分离随着网站业务的发展和用户量的增加，一台服务器就无法再满足需求了。大量用户访问导致访问">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大型网站技术架构">
+<meta property="og:url" content="http://wangyunjiegit.github.io/2016/09/10/大型网站技术架构/index.html">
+<meta property="og:site_name" content="NeroBlog">
+<meta property="og:description" content="1.初始阶段的网站架构一般来讲，大型网站都是从小型网站发展而来，一开始的架构都比较简单，随着业务复杂和用户量的激增，才开始做很多架构上的改进。当它还是小型网站的时候，没有太多访客，一般来讲只需要一台服务器就够了，这时应用程序、数据库、文件等所有资源都在一台服务器上，网站架构如下图所示：  2.应用服务和数据服务分离随着网站业务的发展和用户量的增加，一台服务器就无法再满足需求了。大量用户访问导致访问">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/大型网站技术架构/junior_architecture.png">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/大型网站技术架构/application_data_separation.png">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/大型网站技术架构/cache.png">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/大型网站技术架构/cluster.png">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/大型网站技术架构/read_write_separation.png">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/大型网站技术架构/cdn_reverseProxy.png">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/大型网站技术架构/distributed_data_file_system.png">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/大型网站技术架构/nosql_searchEngine.png">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/大型网站技术架构/business_split.png">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/大型网站技术架构/distributed_service.png">
+<meta property="og:updated_time" content="2017-03-14T16:19:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大型网站技术架构">
+<meta name="twitter:description" content="1.初始阶段的网站架构一般来讲，大型网站都是从小型网站发展而来，一开始的架构都比较简单，随着业务复杂和用户量的激增，才开始做很多架构上的改进。当它还是小型网站的时候，没有太多访客，一般来讲只需要一台服务器就够了，这时应用程序、数据库、文件等所有资源都在一台服务器上，网站架构如下图所示：  2.应用服务和数据服务分离随着网站业务的发展和用户量的增加，一台服务器就无法再满足需求了。大量用户访问导致访问">
+<meta name="twitter:image" content="http://wangyunjiegit.github.io/img/大型网站技术架构/junior_architecture.png">
+  
+    <link rel="alternate" href="/atom.xml" title="NeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">If you can&#39;t explain it simply, you don&#39;t understand it well enough.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangyunjiegit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-大型网站技术架构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/10/大型网站技术架构/" class="article-date">
+  <time datetime="2016-09-10T13:41:30.000Z" itemprop="datePublished">2016-09-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      大型网站技术架构
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-初始阶段的网站架构"><a href="#1-初始阶段的网站架构" class="headerlink" title="1.初始阶段的网站架构"></a>1.初始阶段的网站架构</h2><p>一般来讲，大型网站都是从小型网站发展而来，一开始的架构都比较简单，随着业务复杂和用户量的激增，才开始做很多架构上的改进。当它还是小型网站的时候，没有太多访客，一般来讲只需要一台服务器就够了，这时应用程序、数据库、文件等所有资源都在一台服务器上，网站架构如下图所示：</p>
+<p><img src="/img/大型网站技术架构/junior_architecture.png" alt="初级网站架构"></p>
+<h2 id="2-应用服务和数据服务分离"><a href="#2-应用服务和数据服务分离" class="headerlink" title="2.应用服务和数据服务分离"></a>2.应用服务和数据服务分离</h2><p>随着网站业务的发展和用户量的增加，一台服务器就无法再满足需求了。大量用户访问导致访问速度越来越慢，而逐渐增加的数据也会导致存储空间不足。这时就需要将应用和数据分离，应用和数据分离后整个网站使用3台服务器：应用服务器、文件服务器和数据库服务器。这3台服务器对硬件资源的要求各不相同：</p>
+<ul>
+<li>应用服务器业务逻辑，需要强大的CPU</li>
+<li>数据库服务器对磁盘读写操作很多，需要更快的磁盘和更大的内存</li>
+<li>文件服务器存储用户上传的文件，因此需要更大的磁盘空间</li>
+</ul>
+<p>此时，网站系统的架构如下图所示：</p>
+<p><img src="/img/大型网站技术架构/application_data_separation.png" alt="应用服务与数据服务分离"></p>
+<h2 id="3-使用缓存改善网站性能"><a href="#3-使用缓存改善网站性能" class="headerlink" title="3.使用缓存改善网站性能"></a>3.使用缓存改善网站性能</h2><p>随着用户再增加，网站又会一次面临挑战：数据库压力太大导致整站访问效率再此下降，用户体验受到影响。一个网站，往往 80% 的业务访问集中在 20% 的数据上，比如微博请求量最多的肯定是那些千万级粉丝的大 V 的微博，而几乎没有人关注的你的首页，除了自己想起来之外根本不会被打开。既然大部分业务访问集中在一小部分数据上，那就把这一小部分数据先提前缓存在内存中，而不是每次都去数据库读取，这样就可以减少数据库的访问压力，从而提高整个网站的访问速度。</p>
+<p>网站使用的缓存一般分为缓存到应用服务器或者缓存在专门的分布式缓存服务器。缓存到应用服务器自己的访问速度快很多，但是受自身内存限制，往往不太适用。远程分布式缓存使用一个集群专门负责缓存服务，当内存不够还可以轻松得动态扩容。</p>
+<p><img src="/img/大型网站技术架构/cache.png" alt="缓存"></p>
+<h2 id="4-使用应用服务器集群改善网站的并发处理能力"><a href="#4-使用应用服务器集群改善网站的并发处理能力" class="headerlink" title="4.使用应用服务器集群改善网站的并发处理能力"></a>4.使用应用服务器集群改善网站的并发处理能力</h2><p>使用缓存后，数据访问压力得到了缓解，但是单一应用服务器能够处理的请求连接有限，在网站访问高峰期，应用服务器就成了整个网站的效率瓶颈。使用分布式集群是网站解决高并发、海量数据问题的常用手段。当一台服务器的处理能力和存储空间不足时，不要尝试去更换更强大的服务器，对大型网站而言，多么强大的服务器，都满足不了网站持续增长的业务需求。这种情况下，更恰当的做法是增加一台服务器分担原有服务器的访问及存储压力。 对网站架构而言，只要能通过增加一台服务器的方式改善负载压力，就可以以同样的方式持续增加服务器不断改善系统性能，从而实现系统的可伸缩性。</p>
+<p>应用服务器实现集群是网站可伸缩架构设计中较为简单成熟的一种，如下图所示：</p>
+<p><img src="/img/大型网站技术架构/cluster.png" alt="集群"></p>
+<p>通过负载均衡调度服务器，可以将来自用户浏览器的访问请求分发到应用服务器集群中的任何一台服务器上，如果有更多用户，就在集群中加入更多的应用服务器，使应用服务器的压力不再成为整个网站的瓶颈。</p>
+<h2 id="5-数据库读写分离"><a href="#5-数据库读写分离" class="headerlink" title="5.数据库读写分离"></a>5.数据库读写分离</h2><p>网站在使用缓存后，使对大部分数据读操作访问都可以不通过数据库就能完成，但是仍有一部分读操作（缓存访问不命中、缓存过期）和全部的写操作都需要访问数据库，在网站的用户达到一定规模后，数据库因为负载压力过高而成为网站的瓶颈。 目前大部分的主流数据库都提供主从热备功能，通过配置两台数据库主从关系，可以将一台数据库服务器的数据更新同步到另一台服务器上。网站利用数据库的这一功能，实现数据库读写分离，从而改善数据库负载压力。如下图所示：</p>
+<p><img src="/img/大型网站技术架构/read_write_separation.png" alt="数据库读写分离"></p>
+<p>应用服务器在写数据的时候，访问主数据库，主数据库通过主从复制机制将数据更新同步到从数据库，这样当应用服务器读数据的时候，就可以通过从数据库获得数据。为了便于应用程序访问读写分离后的数据库，通常在应用服务器端使用专门的数据访问模块，使数据库读写分离对应用透明。</p>
+<h2 id="6-使用反向代理和-CDN-加速网站响应"><a href="#6-使用反向代理和-CDN-加速网站响应" class="headerlink" title="6.使用反向代理和 CDN 加速网站响应"></a>6.使用反向代理和 CDN 加速网站响应</h2><p>随着网站业务不断发展，用户规模越来越大，由于中国复杂的网络环境，不同地区的用户访问网站时，速度差别也极大。有研究表明，网站访问延迟和用户流失率正相关，网站访问越慢，用户越容易失去耐心而离开。为了提供更好的用户体验，留住用户，网站需要加速网站访问速度。主要手段有使用 CDN 和反向代理。如下图所示：</p>
+<p><img src="/img/大型网站技术架构/cdn_reverseProxy.png" alt="CDN反向代理"></p>
+<h2 id="7-使用分布式文件系统和分布式数据库系统"><a href="#7-使用分布式文件系统和分布式数据库系统" class="headerlink" title="7.使用分布式文件系统和分布式数据库系统"></a>7.使用分布式文件系统和分布式数据库系统</h2><p>任何强大的单一服务器都满足不了大型网站持续增长的业务需求。数据库经过读写分离后，从一台服务器拆分成两台服务器，但是随着网站业务的发展依然不能满足需求，这时需要使用分布式数据库。文件系统也一样，需要使用分布式文件系统。如下图所示：</p>
+<p><img src="/img/大型网站技术架构/distributed_data_file_system.png" alt="分布式文件系统/数据库系统"></p>
+<p>分布式数据库是网站数据库拆分的最后手段，只有在单表数据规模非常庞大的时候才使用。不到不得已时，网站更常用的数据库拆分手段是业务分库，将不同业务的数据部署在不同的物理服务器上。</p>
+<h2 id="8-使用-NoSQL-和搜索引擎"><a href="#8-使用-NoSQL-和搜索引擎" class="headerlink" title="8.使用 NoSQL 和搜索引擎"></a>8.使用 NoSQL 和搜索引擎</h2><p>随着网站业务越来越复杂，对数据存储和检索的需求也越来越复杂，网站需要采用一些非关系数据库技术如 NoSQL 和非数据库查询技术如搜索引擎。如下图所示：</p>
+<p><img src="/img/大型网站技术架构/nosql_searchEngine.png" alt="NoSQL及搜索引擎"></p>
+<p>NoSQL 和搜索引擎都是源自互联网的技术手段，对可伸缩的分布式特性具有更好的支持。应用服务器则通过一个统一数据访问模块访问各种数据，减轻应用程序管理诸多数据源的麻烦。</p>
+<h2 id="9-业务拆分"><a href="#9-业务拆分" class="headerlink" title="9.业务拆分"></a>9.业务拆分</h2><p>大型网站为了应对日益复杂的业务场景，通过使用分而治之的手段将整个网站业务分成不同的产品线。如大型购物交易网站都会将首页、商铺、订单、买家、卖家等拆分成不同的产品线，分归不同的业务团队负责。</p>
+<p>具体到技术上，也会根据产品线划分，将一个网站拆分成许多不同的应用，每个应用独立部署。应用之间可以通过一个超链接建立关系（在首页上的导航链接每个都指向不同的应用地址），也可以通过消息队列进行数据分发，当然最多的还是通过访问同一个数据存储系统来构成一个关联的完整系统，如下图所示：</p>
+<p><img src="/img/大型网站技术架构/business_split.png" alt="业务拆分"></p>
+<h2 id="10-分布式服务"><a href="#10-分布式服务" class="headerlink" title="10.分布式服务"></a>10.分布式服务</h2><p>随着业务拆分越来越小，存储系统越来越庞大，应用系统的整体复杂度呈指数级增加，部署维护越来越困难。由于所有应用要和所有数据库系统连接，在数万台服务器规模的网站中，这些连接的数目是服务器规模的平方，导致数据库连接资源不足，拒绝服务。</p>
+<p>既然每一个应用系统都需要执行许多相同的业务操作，比如用户管理、商品管理等，那么可以将这些共用的业务提取出来，独立部署。由这些可复用的业务连接数据库，提供共用业务服务，而应用系统只需要管理用户界面，通过分布式服务调用共用业务服务完成具体业务操作。如下图所示：</p>
+<p><img src="/img/大型网站技术架构/distributed_service.png" alt="分布式服务"></p>
+<p>大型网站的架构演化到这里，基本上大多数的技术问题都可以得以解决了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2016/09/10/大型网站技术架构/" data-id="ck5w3elkv0009sw7kelshhsxi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/28/web前端工程化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          web前端工程化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/24/dotnet平台常用框架/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">.Net平台常用框架</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">十二月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">十月 2011</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/27/golang/go开发环境搭建/">go开发环境搭建(vscode)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/Dapper/">轻量级ORM框架Dapper</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/20/ABP、SaaS与多租户/">ABP、SaaS与多租户</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/持续集成与jenkins/">持续集成与jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/ABP框架/">ABP框架</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Nero<br>
+      Powered by <a href="https://wangyunjiegit.github.io/" target="_blank">Nero</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

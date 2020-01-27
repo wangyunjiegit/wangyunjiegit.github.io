@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>持续集成与jenkins | NeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="持续集成开发中，我们经常遇到一些奇怪问题，比如本地可以编译成功的代码但是同事们更新代码后编译出错，或者在项目有多个Target的时候，资源文件只添加到了当前的Target，另外一个Target这个时候是不能正常编译的，再比如写的工具类，被同事改了，或者自己有改动，很多地方用到了，怎么保证这个类的行为没有发生变化而影响到项目中的其它模块呢？诸如此类。 那么这些问题原因在哪，可否避免呢？当然是可以避免">
+<meta property="og:type" content="article">
+<meta property="og:title" content="持续集成与jenkins">
+<meta property="og:url" content="http://wangyunjiegit.github.io/2017/03/19/持续集成与jenkins/index.html">
+<meta property="og:site_name" content="NeroBlog">
+<meta property="og:description" content="持续集成开发中，我们经常遇到一些奇怪问题，比如本地可以编译成功的代码但是同事们更新代码后编译出错，或者在项目有多个Target的时候，资源文件只添加到了当前的Target，另外一个Target这个时候是不能正常编译的，再比如写的工具类，被同事改了，或者自己有改动，很多地方用到了，怎么保证这个类的行为没有发生变化而影响到项目中的其它模块呢？诸如此类。 那么这些问题原因在哪，可否避免呢？当然是可以避免">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wangyunjiegit.github.io/img/持续集成与Jenkins/jenkins.png">
+<meta property="og:updated_time" content="2017-03-19T04:41:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="持续集成与jenkins">
+<meta name="twitter:description" content="持续集成开发中，我们经常遇到一些奇怪问题，比如本地可以编译成功的代码但是同事们更新代码后编译出错，或者在项目有多个Target的时候，资源文件只添加到了当前的Target，另外一个Target这个时候是不能正常编译的，再比如写的工具类，被同事改了，或者自己有改动，很多地方用到了，怎么保证这个类的行为没有发生变化而影响到项目中的其它模块呢？诸如此类。 那么这些问题原因在哪，可否避免呢？当然是可以避免">
+<meta name="twitter:image" content="http://wangyunjiegit.github.io/img/持续集成与Jenkins/jenkins.png">
+  
+    <link rel="alternate" href="/atom.xml" title="NeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">If you can&#39;t explain it simply, you don&#39;t understand it well enough.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangyunjiegit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-持续集成与jenkins" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/19/持续集成与jenkins/" class="article-date">
+  <time datetime="2017-03-19T03:19:01.000Z" itemprop="datePublished">2017-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      持续集成与jenkins
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="持续集成"><a href="#持续集成" class="headerlink" title="持续集成"></a>持续集成</h1><p>开发中，我们经常遇到一些奇怪问题，比如本地可以编译成功的代码但是同事们更新代码后编译出错，或者在项目有多个Target的时候，资源文件只添加到了当前的Target，另外一个Target这个时候是不能正常编译的，再比如写的工具类，被同事改了，或者自己有改动，很多地方用到了，怎么保证这个类的行为没有发生变化而影响到项目中的其它模块呢？诸如此类。</p>
+<p>那么这些问题原因在哪，可否避免呢？当然是可以避免的，如果代码有新的改动，提交到版本库中的时候，有专人检查必要事项，并进行测试。</p>
+<p>引起各种奇怪问题的原因有很多，比如开发环境比较复杂不干净，IDE的bug，提交前有一些必要的检查需要做，但是开发时因为各种原因没做，这些机械重复的事情我们可以找一个工具来帮我们完成，而且这个工具跑在一个专门的服务器上，该服务器环境相对干净，可以运行一些自动化操作，而自动编译，代码检查，测试等环节，那么这种东西，就是接下来讲的［持续集成］。</p>
+<p>持续集成是指为解决程序代码提交质量低，提交内容导致原有系统的bug，按时或按需自动编译版本，自动进行自动化测试的实践工作。</p>
+<h2 id="持续集成的特性："><a href="#持续集成的特性：" class="headerlink" title="持续集成的特性："></a>持续集成的特性：</h2><ol>
+<li><p>对重复的编译发布等操作进行抽象，减少重复过程。</p>
+</li>
+<li><p>及早发现各种冲突和错误，减少风险。</p>
+</li>
+<li><p>任何时间、任何地点生成可部署的软件</p>
+</li>
+</ol>
+<h2 id="持续集成方案："><a href="#持续集成方案：" class="headerlink" title="持续集成方案："></a>持续集成方案：</h2><p>实践持续集成方案，需要一些必要条件</p>
+<ol>
+<li><p>一个自动构建过程，包括自动编译、分发、部署和测试等</p>
+</li>
+<li><p>一个代码存储库，即需要版本控制软件来保障代码的可维护性，同时作为构建过程的素材库。</p>
+</li>
+<li><p>一个持续集成服务器。</p>
+</li>
+</ol>
+<p>自动化构建成过程，可帮助我们节省大量时间，完成这个过程的自动化后，在以后的开发过程中，我们需要做的，就是只是提交代码到版本库中，构建自动完成，基本不再需要人工干预。</p>
+<p>代码仓库作为构建的素材库，构建所需的代码从代码库中获得。</p>
+<p>最好有一台服务器单独作为持续集成服务器，一方面保证了环境的纯净，一方面不影响开发，而且持续集成服务器一般是随时准备开始构建的，所以一般也不关机。</p>
+<p>首先要有统一的代码库，服务器不断从版本控制服务器上检查代码状态，看代码是否有更新。如果发现有代码更新，那么就从版本控制服务器下载最新的代码。等代码完全更新以后，调用自动化编译脚本，进行代码编译。然后运行所有的自动化测试，并且进行代码分析。如果其中任何一个步骤失败，就表示build失败，持续集成服务器会给予响应的反馈。每次代码提交之后，都会在持续集成服务器上触发一个定时构建，然后进行编译、部署。</p>
+<h2 id="持续集成原则"><a href="#持续集成原则" class="headerlink" title="持续集成原则:"></a>持续集成原则:</h2><ol>
+<li><p>开发人员必须及时向版本控制库中提交代码，也必须经常性地从版本控制库中更新代码到本地；</p>
+</li>
+<li><p>需要有专门的集成服务器来执行集成构建。根据项目的具体实际，集成构建可以被软件的修改来直接触发，也可以定时启动，如每半个小时构建一次；</p>
+</li>
+<li><p>必须保证构建的成功。如果构建失败，修复构建过程中的错误是优先级最高的工作。一旦修复，需要手动启动一次构建。</p>
+</li>
+<li><p>不更新构建失败的代码</p>
+</li>
+</ol>
+<p>开发人员及时的提交代码进行构建是符合上述实践的，及时拉取代码可以防止工作中的分支偏离主干分支太多。定时触发构建或者通过检测代码的修改情况在触发构建都是可以的，主要是根及时的构建新的代码。如果构建失败，则必要及时处理导致失败的问题，修复后重新构建。当然构建失败的代码就不要拉到本地了，会污染一个本来是可以运行的工作区。</p>
+<h1 id="持续集成工具jenkins"><a href="#持续集成工具jenkins" class="headerlink" title="持续集成工具jenkins"></a>持续集成工具jenkins</h1><p>jenkins作为持续集成工具比较常用，各种开发实践都可以通过大量的插件来组合实现，可定制性很好。</p>
+<blockquote>
+<p>jenkins是一个开源项目，提供了一种易于使用的持续集成系统，使开发者从繁杂的集成中解脱出来，专注于更为重要的业务逻辑实现上。同时 Jenkins 能实施监控集成中存在的错误，提供详细的日志文件和提醒功能，还能用图表的形式形象地展示项目构建的趋势和稳定性。— 维基百科</p>
+</blockquote>
+<h2 id="Jenkins功能"><a href="#Jenkins功能" class="headerlink" title="Jenkins功能:"></a>Jenkins功能:</h2><p>1.定时拉取代码并编译</p>
+<p>2.静态代码分析</p>
+<p>3.定时打包发布测试版</p>
+<p>4.自定义额外的操作，如跑单元测试等</p>
+<p>5.出错提醒</p>
+<p>基本上都是持续集成实践中的要求和周边的一些实现措施，如提醒功能等，出错后及时提醒开发者修复，Jenkins 中通过配置 SMTP 配置信息（这个一般的邮件服务提供商都有提供），邮件模板等，创建事件触发器，在事件（如编译失败）发生时，及时发送邮件通知开发者，挺方便的。</p>
+<p>Jenkins 有很多种触发构建的方式，如 webhook，定时更新代码等，同时可以在触发构建后执行自定义的构建操作，通过编辑自定义的构建脚本，几乎可以进行任何构建操作。</p>
+<h2 id="Jenkins理解"><a href="#Jenkins理解" class="headerlink" title="Jenkins理解"></a>Jenkins理解</h2><p><img src="/img/持续集成与Jenkins/jenkins.png" alt="Jenkins理解"></p>
+<p>这里是选择Gitlab作为git server。Gitlab的功能和Github差不多，但是是开源的，可以用来搭建私有git server，也提供非常强大的web GUI，比如开发者互相review源代码的时候就会很方便。</p>
+<p>系统的工作流程大概分为以下几步:</p>
+<ol>
+<li><p>开发者将新版本push到git server (Gitlab)。</p>
+</li>
+<li><p>Gitlab随后触发jenkins master结点进行一次build。(通过web hook或者定时检测)</p>
+</li>
+<li><p>jenkins master结点将这个build任务分配给若干个注册的slave结点中的一个，这个slave结点根据一个事先设置好的脚本进行build。这个脚本可以做的事情很多，比如编译，测试，生成测试报告等等。这些原本需要手动完成的任务都可以交给jenkins来做。</p>
+</li>
+<li><p>我们在build中要进行编译，这里使用了分布式编译器distcc来加快编译速度。</p>
+</li>
+</ol>
+<p>注意：</p>
+<p>jenkins的工作原理是先将源代码从gitlab中拷贝一份到本地，然后根据设置的脚本进行build。我们可以看出，整个系统的关键就是那个build脚本，用来告诉jenkins在一次集成中需要执行的任务。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2017/03/19/持续集成与jenkins/" data-id="ck5w3ell0000dsw7kmee00qes" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/20/ABP、SaaS与多租户/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ABP、SaaS与多租户
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/17/ABP框架/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ABP框架</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">十二月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">十月 2011</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/27/golang/go开发环境搭建/">go开发环境搭建(vscode)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/Dapper/">轻量级ORM框架Dapper</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/20/ABP、SaaS与多租户/">ABP、SaaS与多租户</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/持续集成与jenkins/">持续集成与jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/ABP框架/">ABP框架</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Nero<br>
+      Powered by <a href="https://wangyunjiegit.github.io/" target="_blank">Nero</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

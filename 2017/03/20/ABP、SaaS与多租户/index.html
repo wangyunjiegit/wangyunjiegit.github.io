@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>ABP、SaaS与多租户 | NeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ABPASP.NET Boilerplate是一个用最佳实践和流行技术开发现代WEB应用程序的新起点，它旨在成为一个通用的WEB应用程序框架和项目模板。ASP.NET Boilerplate 基于DDD的经典分层架构思想，实现了众多DDD的概念（但没有实现所有DDD的概念）。ABP不仅架构设计和代码写的好，文档也很全面详实（这是一个开发框架被技术选型的基础）。 多租户多租户用于创建Saas（Sof">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ABP、SaaS与多租户">
+<meta property="og:url" content="http://wangyunjiegit.github.io/2017/03/20/ABP、SaaS与多租户/index.html">
+<meta property="og:site_name" content="NeroBlog">
+<meta property="og:description" content="ABPASP.NET Boilerplate是一个用最佳实践和流行技术开发现代WEB应用程序的新起点，它旨在成为一个通用的WEB应用程序框架和项目模板。ASP.NET Boilerplate 基于DDD的经典分层架构思想，实现了众多DDD的概念（但没有实现所有DDD的概念）。ABP不仅架构设计和代码写的好，文档也很全面详实（这是一个开发框架被技术选型的基础）。 多租户多租户用于创建Saas（Sof">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-03-20T02:42:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ABP、SaaS与多租户">
+<meta name="twitter:description" content="ABPASP.NET Boilerplate是一个用最佳实践和流行技术开发现代WEB应用程序的新起点，它旨在成为一个通用的WEB应用程序框架和项目模板。ASP.NET Boilerplate 基于DDD的经典分层架构思想，实现了众多DDD的概念（但没有实现所有DDD的概念）。ABP不仅架构设计和代码写的好，文档也很全面详实（这是一个开发框架被技术选型的基础）。 多租户多租户用于创建Saas（Sof">
+  
+    <link rel="alternate" href="/atom.xml" title="NeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">If you can&#39;t explain it simply, you don&#39;t understand it well enough.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangyunjiegit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ABP、SaaS与多租户" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/20/ABP、SaaS与多租户/" class="article-date">
+  <time datetime="2017-03-20T01:59:09.000Z" itemprop="datePublished">2017-03-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ABP、SaaS与多租户
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ABP"><a href="#ABP" class="headerlink" title="ABP"></a>ABP</h1><p>ASP.NET Boilerplate是一个用最佳实践和流行技术开发现代WEB应用程序的新起点，它旨在成为一个通用的WEB应用程序框架和项目模板。ASP.NET Boilerplate 基于DDD的经典分层架构思想，实现了众多DDD的概念（但没有实现所有DDD的概念）。ABP不仅架构设计和代码写的好，文档也很全面详实（这是一个开发框架被技术选型的基础）。</p>
+<h1 id="多租户"><a href="#多租户" class="headerlink" title="多租户"></a>多租户</h1><p>多租户用于创建Saas（Software as-a service）应用（云处理）。</p>
+<blockquote>
+<p>维基百科对多租户的解释是：软件<strong>多租户</strong>是指一种软件架构，在这种软件架构中，软件的<strong>一个实例</strong>运行在服务器上并且为多个租户服务。</p>
+</blockquote>
+<p>一个租户是一组共享该软件实例特定权限的用户。有了多租户架构，软件应用被设计成为每个租户提供一个<strong>专用的实例包括该实例的数据的共享</strong>，还可以共享配置，用户管理，租户自己的功能和非功能属性。多租户和多实例架构相比，多租户分离了代表不同的租户操作的多个实例。</p>
+<p>多租户一般涉及如下几种场景：</p>
+<ul>
+<li>多部署-多数据库：即针对每个租户独立部署一套应用程序实例，每个实例对应一个数据库。这种不算是真正的多租户，不过对于在设计时没有考虑多租户的遗留系统采用这种部署方式不失为一种折中办法。</li>
+<li>单部署-多数据库：只有唯一的一个应用程序实例，每个租户分别连接不同的数据库。</li>
+<li>单部署-单数据库：应用程序实例和数据库都是一个。通过在需要隔离数据的数据表中加入一个类似TanantId或EnterpriseId来区分。如果我们有很多具有大量数据的租户，那么这种方法可能会有性能问题。我们可以使用关系型数据库的表分割特征或者将租户按组分到不同的服务器上。</li>
+<li>单部署-混搭数据库：应用程序实例一个，但是数据库根据情况，可以是单个或者多个。比如免费用户放到一个数据库中，高级用户分别有自己的数据库。</li>
+<li>集群部署-单/多/混搭数据库：应用程序的逻辑实例还是一个（只是为了高可用和性能部署为一个集群），然后对应的数据库可以是单个、多个和混搭。</li>
+</ul>
+<p>另外，除了针对租户的数据库以外，可能还需要一个全局的数据库（称之为主机数据库）来保存全局范围的配置数据。在单数据库情况下，主机数据可能就和租户数据放在一起（甚至同一个数据表中）。</p>
+<h1 id="ABP中的多租户"><a href="#ABP中的多租户" class="headerlink" title="ABP中的多租户"></a>ABP中的多租户</h1><p>ABP提供了创建单部署，单数据库，多租户架构的基础设施。</p>
+<p>从零搭建单部署-单数据库的多租户架构比较麻烦，因为我们必须要阻止一个租户读取或写入其他租户的数据。我们可以为每个数据库的读取（select）操作添加一个TenantId过滤器。而且，我们可以在每次写入的时候检查一下该实体是否和当前的租户相关。这是乏味而易于出错的，但ABP通过使用自动的数据过滤帮助我们处理这个事情。</p>
+<h2 id="租主与租户"><a href="#租主与租户" class="headerlink" title="租主与租户"></a>租主与租户</h2><ul>
+<li>租主（Host）:租主是单例的（只有一个租主）。租主会对创建和管理租户负责。因此，一个“租主用户”比所有的租户等级更高，并独立于所有租户，同时还能控制他们。</li>
+<li>租户（Tenant）:租主的一个客户，具有自己的用户角色，权限，设置等。每个租户都可以完全独立于其他租户使用应用。一个多租户应用会有一个或多个租户。如果是一个CRM应用，那么不同的租户也有它们自己的账户，契约，产品和订单。因此，当我们说“**租户用户”的时候，意思就是一个租户拥有的用户。</li>
+</ul>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>ABP定义了一个获取当前用户和租户id的IAbpSession接口。该接口用于多租户获取当前的租户id。因此，它可以基于当前的租户id过滤数据。ABP中有以下规则：</p>
+<ul>
+<li>如果UserId和TenantId都是null，那么当前的用户没有登录到系统。因此，我们可以不知道当前用户是否是一个租主用户还是一个租户用户。在这种情况下，用户不能访问授权的内容。</li>
+<li>如果UserId不是null，TenantId是null，那么当前用户是一个租主用户。</li>
+<li>如果UserId不是null，TenantId也不是null，那么当前用户是租户用户。</li>
+</ul>
+<h2 id="数据过滤器"><a href="#数据过滤器" class="headerlink" title="数据过滤器"></a>数据过滤器</h2><p>当从数据库中检索实体时，我们必须添加一个TenantId过滤器来只获得当前的租户实体。当你为实体实现了IMustHaveTenant和IMayHaveTenant两个接口之一时，ABP会自动地完成数据过滤。</p>
+<h2 id="IMustHaveTenant接口"><a href="#IMustHaveTenant接口" class="headerlink" title="IMustHaveTenant接口"></a>IMustHaveTenant接口</h2><p>该接口通过定义TenantId属性来区分不同租户的实体。一个实现了IMustHaveTenant的实体例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Product : Entity, IMustHaveTenant</span><br><span class="line">&#123;</span><br><span class="line">    public int TenantId &#123; get; set; &#125;</span><br><span class="line">        </span><br><span class="line">    public string Name &#123; get; set; &#125;</span><br><span class="line">    </span><br><span class="line">    //...其他属性</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样，ABP知道这是一个特定租户的实体，并且会自动地将一个租户的实体从其他实体中分离出来。</p>
+<h2 id="IMayHaveTenant接口"><a href="#IMayHaveTenant接口" class="headerlink" title="IMayHaveTenant接口"></a>IMayHaveTenant接口</h2><p>我们可能需要在租户和租户之间共享一个实体类型。因此，一个实体可能会被一个租户或租主拥有。IMayHaveTenant接口也定义了TenantId(类似于IMustHaveTenant)，但在这种情况下是nullable。实现了IMayHaveTenant的一个实体例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Role : Entity, IMayHaveTenant</span><br><span class="line">&#123;</span><br><span class="line">    public int? TenantId &#123; get; set; &#125;</span><br><span class="line">        </span><br><span class="line">    public string RoleName &#123; get; set; &#125;</span><br><span class="line">    </span><br><span class="line">    //...其他属性</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们可能会使用相同的Role类来存储租主角色和租户角色。这种情况下，TenantId表明这是一个租户实体还是一个租主实体。null值表示这是一个租主实体，非null值表示这被一个租户拥有，该租户的Id是TenantId。</p>
+<p>IMayHaveTenant不像IMustHaveTenant一样常用。比如，一个Product类可以不实现IMayHaveTenant接口，因为Product和实际的应用功能相关，和管理租户不相干。因此，要小心使用IMayHaveTenant接口，因为它更难维护租户和租主共享的代码。</p>
+<h2 id="保存实体"><a href="#保存实体" class="headerlink" title="保存实体"></a>保存实体</h2><p>一个租户用户不应该创建或编辑其他租户的实体。如果相关的数据过滤器开启了，那么ABP会检查该实体相对于数据库的改变。</p>
+<h2 id="ABP对多租户的支持"><a href="#ABP对多租户的支持" class="headerlink" title="ABP对多租户的支持"></a>ABP对多租户的支持</h2><p>在模块的PreInitialize方法中开启多租户模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Configuration.MultiTenancy.IsEnabled = true;</span><br></pre></td></tr></table></figure></p>
+<p>ABP中内置了处理TenantId的机制（通过接口IMustHaveTenant或IMayHaveTenant来实现）。实体实现了IMustHaveTenant接口，会包含一个不能为空的TenantId属性，即意味着其中的数据库需要基于TenantId来进行隔离。实现了IMayHaveTenant接口，会包含一个能为空的TenantId属性，在TenantId为空的时候代表数据属于主机范围的，不为空的时候表示数据基于租户来隔离。</p>
+<p>而ABP通过一个特殊封装的IAbpSession来给使用者提供当前TenantId的获取，如果是主机用户登录系统，那么TenantId就是为空的，否则就是登录用户所在租户的Id。</p>
+<h2 id="ABP在多租户下读取数据"><a href="#ABP在多租户下读取数据" class="headerlink" title="ABP在多租户下读取数据"></a>ABP在多租户下读取数据</h2><p>ABP并非只是简单的给你的实体类添加一个TenantId属性，而是通过识别IMustHaveTenant或IMayHaveTenant接口，使用数据过滤机制（根据底层所用ORM不同有不同的实现方式）自动在你读取数据的时候，基于当前AbpSession中的TenantId来过滤数据。也就是说，你查询读取数据的时候，写“where item.TenantId == AbpSession.TenantId” 这样的代码是毫无必要的。</p>
+<p>需要注意的是，如果实体实现的是IMustHaveTenant接口，且AbpSession.TenantId为null的时候（即主机用户），获取到的数据是所有租户的，除非你自己显式进行过滤。而在IMayHaveTenant情况下，AbpSession.TenantId为null获取到的是主机用户的数据。</p>
+<h2 id="ABP在多租户下写入数据"><a href="#ABP在多租户下写入数据" class="headerlink" title="ABP在多租户下写入数据"></a>ABP在多租户下写入数据</h2><p>在多租户的情形下，写入数据也通过拦截机制（比如重写DbContext的SaveChanges方法），可以自动为你的实体设置TenantId属性，不管你用的是IMustHaveTenant还是IMayHaveTenant。虽然官方文档是推荐在创建实体的时候，总是显示设置TenantId的，尤其在使用IMayHaveTenant的时候（这也是abp使用者唯一需要关系这个属性的地方）。但是，就我个人的看法而言，利用框架的原因就是为了让编码简单，所以我还是倾向于建议大家不用显式设置TenantId。</p>
+<p>参考资料：<a href="http://www.aspnetboilerplate.com/Pages/Documents/Multi-Tenancy" target="_blank" rel="noopener">ABP多租户官方文档</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2017/03/20/ABP、SaaS与多租户/" data-id="ck5w3eljp0002sw7kldg8mhr3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/Dapper/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          轻量级ORM框架Dapper
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/19/持续集成与jenkins/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">持续集成与jenkins</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">十二月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">十月 2011</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/27/golang/go开发环境搭建/">go开发环境搭建(vscode)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/Dapper/">轻量级ORM框架Dapper</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/20/ABP、SaaS与多租户/">ABP、SaaS与多租户</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/持续集成与jenkins/">持续集成与jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/ABP框架/">ABP框架</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Nero<br>
+      Powered by <a href="https://wangyunjiegit.github.io/" target="_blank">Nero</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

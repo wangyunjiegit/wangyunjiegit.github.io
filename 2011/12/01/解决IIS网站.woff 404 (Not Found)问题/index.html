@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>解决IIS网站.woff 404 (Not Found)问题 | NeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、在没有权限操作IIS管理器的情况下，在Web.config中的system.webServer节点进行如下配置：123456&amp;lt;system.webServer&amp;gt;        &amp;lt;staticContent&amp;gt;        &amp;lt;remove fileExtension=&amp;quot;.woff&amp;quot; /&amp;gt;        &amp;lt;mimeMap fileExt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决IIS网站.woff 404 (Not Found)问题">
+<meta property="og:url" content="http://wangyunjiegit.github.io/2011/12/01/解决IIS网站.woff 404 (Not Found)问题/index.html">
+<meta property="og:site_name" content="NeroBlog">
+<meta property="og:description" content="一、在没有权限操作IIS管理器的情况下，在Web.config中的system.webServer节点进行如下配置：123456&amp;lt;system.webServer&amp;gt;        &amp;lt;staticContent&amp;gt;        &amp;lt;remove fileExtension=&amp;quot;.woff&amp;quot; /&amp;gt;        &amp;lt;mimeMap fileExt">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-03-14T04:16:16.920Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解决IIS网站.woff 404 (Not Found)问题">
+<meta name="twitter:description" content="一、在没有权限操作IIS管理器的情况下，在Web.config中的system.webServer节点进行如下配置：123456&amp;lt;system.webServer&amp;gt;        &amp;lt;staticContent&amp;gt;        &amp;lt;remove fileExtension=&amp;quot;.woff&amp;quot; /&amp;gt;        &amp;lt;mimeMap fileExt">
+  
+    <link rel="alternate" href="/atom.xml" title="NeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">If you can&#39;t explain it simply, you don&#39;t understand it well enough.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangyunjiegit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-解决IIS网站.woff 404 (Not Found)问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/12/01/解决IIS网站.woff 404 (Not Found)问题/" class="article-date">
+  <time datetime="2011-12-01T11:21:30.000Z" itemprop="datePublished">2011-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      解决IIS网站.woff 404 (Not Found)问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、在没有权限操作IIS管理器的情况下，在Web.config中的system.webServer节点进行如下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;system.webServer&gt;    </span><br><span class="line">    &lt;staticContent&gt;</span><br><span class="line">        &lt;remove fileExtension=&quot;.woff&quot; /&gt;</span><br><span class="line">        &lt;mimeMap fileExtension=&quot;.woff&quot; mimeType=&quot;font/x-font-woff&quot; /&gt;      </span><br><span class="line">    &lt;/staticContent&gt;</span><br><span class="line">&lt;/system.webServer&gt;</span><br></pre></td></tr></table></figure></p>
+<p>配置<remove fileextension=".woff">是为了防止出现这个错误：“在唯一密钥属性“fileExtension”设置为“.woff”时，无法添加类型为“mimeMap”的重复集合项”，如果只添加下面的 <mimemap fileextension=".woff" mimetype="font/x-font-woff"> 这个节点，而且没有报这个错误的话，remove节点可以不用添加。另外”font/x-font-woff”是woff字体的MIME类型值。</mimemap></remove></p>
+<p>二、在IIS中添加woff字体的MIME类型<br>打开控制面板中的IIS管理器，选择当前IIS，打开MIME类型配置，点击MIME类型右边操作的栏的添加功能，弹出的添加MIME类型对话框中，文件扩展名填写.woff，MIME类型可填写 font/x-font-woff 或者application/x-font-woff，点击确定后成功添加了.woff扩展名的MIMI TYPE，现在打开网站请求WOFF字体就不会出现404 NOT FOUND错误了。</p>
+<p>三、woff字体简介</p>
+<p>Web开放字体格式（Web Open Font Format，简称WOFF） 是一种网页所采用的字体格式标准。此字体格式发展于2009年，现在正由万维网联盟的Web字体工作小组标准化，以求成为推荐标准。此字体格式不但能够有效利用压缩来减少档案大小，并且不包含加密也不受DRM（数位著作权管理）限制。</p>
+<p>在2010年4月8日，Mozilla基金会、Opera软件公司和微软提交WOFF之后，万维网联盟发表评论指，希望WOFF不久能成为所有浏览器都支持的、“单一、可互操作的(字体)格式”。[6]2010年7月27日，万维网联盟将WOFF作为工作草案发布。</p>
+<p>WOFF的MIME类型是：application/x-font-woff（font/x-font-woff也可以），目前的IIS7里面默认没有这个MIME类型，如果要让网站支持这个，请在IIS7里面的MIME类型里面添加woff。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2011/12/01/解决IIS网站.woff 404 (Not Found)问题/" data-id="ck5w3ell2000fsw7k1tk088zf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2011/12/11/asp.net webservice返回json数据量过大，500错误解决方案/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          asp.net webservice返回json数据量过大，500错误解决方案
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2011/10/01/ajax请求asp.net webservice格式/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ajax请求asp.net webservice格式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">十二月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">十月 2011</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/27/golang/go开发环境搭建/">go开发环境搭建(vscode)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/Dapper/">轻量级ORM框架Dapper</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/20/ABP、SaaS与多租户/">ABP、SaaS与多租户</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/持续集成与jenkins/">持续集成与jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/ABP框架/">ABP框架</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Nero<br>
+      Powered by <a href="https://wangyunjiegit.github.io/" target="_blank">Nero</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

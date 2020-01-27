@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>针对高并发、高吞吐的应用设计思路 | NeroBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="总体设计解决高并发要有思维宽度，需要从功能、使用、设计、数据库、缓存、OS各个层面去思考及其解决方法，深入的剖析的各个场景；同时针对高并发也要有一定的技术深度，考虑到应用程序的高并发性能,主要按如下几个思路进行方案设计。 数据评估对应用需要负载的数据量进行评估，数据以理想状态的发展为基础进行库表设计。根据数据量级，制定数据库策略(是否需要对数据库进行分库分表处理)。 应用性能评估对应用的性能进行评">
+<meta property="og:type" content="article">
+<meta property="og:title" content="针对高并发、高吞吐的应用设计思路">
+<meta property="og:url" content="http://wangyunjiegit.github.io/2017/03/07/针对高并发、高吞吐的应用设计思路/index.html">
+<meta property="og:site_name" content="NeroBlog">
+<meta property="og:description" content="总体设计解决高并发要有思维宽度，需要从功能、使用、设计、数据库、缓存、OS各个层面去思考及其解决方法，深入的剖析的各个场景；同时针对高并发也要有一定的技术深度，考虑到应用程序的高并发性能,主要按如下几个思路进行方案设计。 数据评估对应用需要负载的数据量进行评估，数据以理想状态的发展为基础进行库表设计。根据数据量级，制定数据库策略(是否需要对数据库进行分库分表处理)。 应用性能评估对应用的性能进行评">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-03-07T14:03:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="针对高并发、高吞吐的应用设计思路">
+<meta name="twitter:description" content="总体设计解决高并发要有思维宽度，需要从功能、使用、设计、数据库、缓存、OS各个层面去思考及其解决方法，深入的剖析的各个场景；同时针对高并发也要有一定的技术深度，考虑到应用程序的高并发性能,主要按如下几个思路进行方案设计。 数据评估对应用需要负载的数据量进行评估，数据以理想状态的发展为基础进行库表设计。根据数据量级，制定数据库策略(是否需要对数据库进行分库分表处理)。 应用性能评估对应用的性能进行评">
+  
+    <link rel="alternate" href="/atom.xml" title="NeroBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NeroBlog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">If you can&#39;t explain it simply, you don&#39;t understand it well enough.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wangyunjiegit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-针对高并发、高吞吐的应用设计思路" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/07/针对高并发、高吞吐的应用设计思路/" class="article-date">
+  <time datetime="2017-03-07T14:03:31.000Z" itemprop="datePublished">2017-03-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      针对高并发、高吞吐的应用设计思路
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h1><p>解决高并发要有思维宽度，需要从功能、使用、设计、数据库、缓存、OS各个层面去思考及其解决方法，深入的剖析的各个场景；同时针对高并发也要有一定的技术深度，考虑到应用程序的高并发性能,主要按如下几个思路进行方案设计。</p>
+<h2 id="数据评估"><a href="#数据评估" class="headerlink" title="数据评估"></a>数据评估</h2><p>对应用需要负载的数据量进行评估，数据以理想状态的发展为基础进行库表设计。根据数据量级，制定数据库策略(是否需要对数据库进行分库分表处理)。</p>
+<h2 id="应用性能评估"><a href="#应用性能评估" class="headerlink" title="应用性能评估"></a>应用性能评估</h2><p>对应用的性能进行评估，如应用需要10W用户同时在线通信。</p>
+<h2 id="网络性能分析"><a href="#网络性能分析" class="headerlink" title="网络性能分析"></a>网络性能分析</h2><ul>
+<li>网络负载，包括公网负载和内网负载</li>
+<li>应用服务器性能，包括CPU、内存、硬盘I/O访问、并发TCP/IP连接</li>
+<li>数据库服务器性能，包括参数配置、服务器性能（CPU、内存、硬盘）、数据结构的合理性</li>
+<li>不同的网络，不同WEB请求的处理方式，包括静态数据和动态数据</li>
+</ul>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><ul>
+<li>主要难点是环上节点分布均衡与节点处理请求数均衡：</li>
+<li>DNS负载均衡</li>
+<li>软四层交换负载均衡</li>
+<li>反向代理实现负载均衡，并实现页码请求缓存</li>
+</ul>
+<h2 id="数据存储设计思路"><a href="#数据存储设计思路" class="headerlink" title="数据存储设计思路"></a>数据存储设计思路</h2><ul>
+<li>数据库拆分，读写分离（主写，备读）</li>
+<li>将热数据保存进LRU队列中，提高CPU处理速度，主要针对数据库中高频、小字段进行缓存，保证50%的命中率才值得缓存IO开销。</li>
+<li>分布式Key-Value存储系统存储关键性信息</li>
+<li>采用高效的网络文件共享策略，采用图片服务器来实现页面的图片存储</li>
+</ul>
+<h2 id="不同网络用户访问考虑"><a href="#不同网络用户访问考虑" class="headerlink" title="不同网络用户访问考虑"></a>不同网络用户访问考虑</h2><ul>
+<li>引入CDN来解决不同网络服务商的接入速度问题</li>
+<li>在不同运营商机房部署服务器，通过镜像技术来实现不同网络服务商的接入速度问题</li>
+<li>通过域名解析，访问所在网络运营商的nginx，然后通过专线传输到异地局域网访问应用服务器</li>
+<li>租用代理结点，转发请求</li>
+</ul>
+<h2 id="不同地域用户访问考虑"><a href="#不同地域用户访问考虑" class="headerlink" title="不同地域用户访问考虑"></a>不同地域用户访问考虑</h2><ul>
+<li>不同区域部署服务器</li>
+<li>DNS解析域名指向该地域所在接入的nginx，Nginx通过专线内网访问应用服务器。</li>
+<li>租用代理结点，转发请求</li>
+</ul>
+<h2 id="高并发-高负载-的定义"><a href="#高并发-高负载-的定义" class="headerlink" title="高并发(高负载)的定义"></a>高并发(高负载)的定义</h2><ul>
+<li>CPU/内存开销，都有哪些进程和服务占用，IO开销，服务读写频率；</li>
+<li>增长趋势线性增加、指数增加(无索引遍历)、收敛增加(支撑性)；</li>
+<li>系统阀值请求超越了OS阀值：如https超时太长导致https超过最大值；mysql链接越界；</li>
+<li>峰谷的规律和预测原因分析；</li>
+<li>异常的监控和跟踪异常比例不超过万分之几可以忽略，而千分之几就要去研究了。</li>
+</ul>
+<h2 id="数据容灾"><a href="#数据容灾" class="headerlink" title="数据容灾"></a>数据容灾</h2><ul>
+<li>备份恢复，提供如何进行备份以及进行恢复工作</li>
+<li>备份策略，提供不同备份策略，应对各种情况数据恢复问题，例如数据库升级</li>
+<li>灾难演练，发生灾难后是否能继续提供正常服务</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wangyunjiegit.github.io/2017/03/07/针对高并发、高吞吐的应用设计思路/" data-id="ck5w3ell8000isw7kn6fj09h4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/17/ABP框架/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ABP框架
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/06/前端技术栈/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">前端技术栈</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">十二月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">十月 2011</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/27/golang/go开发环境搭建/">go开发环境搭建(vscode)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/Dapper/">轻量级ORM框架Dapper</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/20/ABP、SaaS与多租户/">ABP、SaaS与多租户</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/19/持续集成与jenkins/">持续集成与jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/ABP框架/">ABP框架</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Nero<br>
+      Powered by <a href="https://wangyunjiegit.github.io/" target="_blank">Nero</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
